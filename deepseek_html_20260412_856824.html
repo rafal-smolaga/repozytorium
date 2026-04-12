@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell Portfolio – Twoje Imię i Nazwisko</title>
+    <!-- Font Awesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Consolas', 'Monaco', monospace;
+            background-color: #f6f8fa;
+            color: #24292f;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #012456, #00337C);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow: 0 6px 14px rgba(1, 36, 86, 0.2);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #012456;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #012456;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border: 1px solid #1e4f8a;
+        }
+
+        .bio {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #57606a;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #012456;
+            font-size: 1.8rem;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #0078d4;
+            transform: scale(1.1);
+        }
+
+        /* Sekcja projektów */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #012456;
+            border-bottom: 3px solid #eaeef2;
+            padding-bottom: 12px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e1e4e8;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(1, 36, 86, 0.08);
+            border-color: #012456;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: #012456;
+            margin-bottom: 16px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #012456;
+        }
+
+        .project-description {
+            color: #57606a;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #eef2f6;
+            color: #012456;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: auto;
+        }
+
+        .project-links a {
+            color: #57606a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-links a:hover {
+            color: #012456;
+        }
+
+        /* Stopka */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #8c959f;
+            font-size: 0.9rem;
+            border-top: 1px solid #eaeef2;
+            padding-top: 30px;
+        }
+
+        /* Responsywność */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .avatar {
+                width: 90px;
+                height: 90px;
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Awatar z inicjałami – możesz podmienić na zdjęcie -->
+            <div class="avatar">
+                <span>JK</span> <!-- Zmień na swoje inicjały -->
+            </div>
+            <h1>Jan Kowalski</h1> <!-- Twoje imię i nazwisko -->
+            <div class="badge">
+                <i class="fas fa-terminal" style="margin-right: 8px;"></i>PowerShell Developer & Automator
+            </div>
+            <p class="bio">
+                Cześć! 👋 Specjalizuję się w automatyzacji zadań i tworzeniu narzędzi w PowerShell. 
+                Poniżej znajdziesz moje najciekawsze projekty – od modułów po skrypty usprawniające codzienną pracę.
+            </p>
+            <div class="social-links">
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <!-- Możesz dodać więcej linków -->
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">
+                <i class="fas fa-code-branch" style="margin-right: 12px;"></i>Projekty PowerShell
+            </h2>
+            <div class="projects-grid" id="projects-container">
+                <!-- Karty projektów zostaną wstawione przez JavaScript -->
+            </div>
+        </section>
+
+        <footer>
+            <p>🚀 Hostowane na <i class="fab fa-github"></i> GitHub Pages | Ostatnia aktualizacja: <span id="current-year"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // -------------------------------------------------------------
+            // KONFIGURACJA – TUTAJ WPISZ SWOJE DANE I PROJEKTY
+            // -------------------------------------------------------------
+            const userData = {
+                name: 'Jan Kowalski',               // Twoje imię i nazwisko
+                initials: 'JK',                      // Inicjały wyświetlane w awatarze
+                bio: 'Cześć! 👋 Specjalizuję się w automatyzacji zadań i tworzeniu narzędzi w PowerShell. Poniżej znajdziesz moje najciekawsze projekty – od modułów po skrypty usprawniające codzienną pracę.',
+                github: 'https://github.com/twojanazwa',    // Link do GitHub
+                linkedin: 'https://linkedin.com/in/twojprofil', // lub usuń
+                twitter: '',                                   // opcjonalnie
+                // Lista projektów – dodaj tyle, ile potrzebujesz
+                projects: [
+                    {
+                        title: 'PSModuleManager',
+                        description: 'Moduł PowerShell do zarządzania modułami – instalacja, aktualizacja, czyszczenie starych wersji. Obsługa PSGallery i repozytoriów lokalnych.',
+                        tags: ['PowerShell', 'Moduł', 'PSGallery'],
+                        githubUrl: 'https://github.com/twojanazwa/PSModuleManager',
+                        icon: 'fa-cubes' // ikona Font Awesome
+                    },
+                    {
+                        title: 'AD-Audit-Toolkit',
+                        description: 'Zestaw skryptów do audytu Active Directory: raporty o nieaktywnych kontach, wygasających hasłach, uprawnieniach NTFS.',
+                        tags: ['Active Directory', 'Audyt', 'Bezpieczeństwo'],
+                        githubUrl: 'https://github.com/twojanazwa/AD-Audit-Toolkit',
+                        icon: 'fa-shield-hal'
+                    },
+                    {
+                        title: 'WinSysCleaner',
+                        description: 'Skrypt czyszczący system Windows: tempy, logi, cache przeglądarek, stare punkty przywracania. Działa w tle z logowaniem.',
+                        tags: ['Windows', 'Maintenance', 'CLI'],
+                        githubUrl: 'https://github.com/twojanazwa/WinSysCleaner',
+                        icon: 'fa-broom'
+                    },
+                    {
+                        title: 'PSLogAnalyzer',
+                        description: 'Szybki analizator logów zdarzeń Windows napisany w PowerShell. Filtruje, agreguje i eksportuje do CSV/HTML.',
+                        tags: ['Logi', 'Analiza', 'Raporty'],
+                        githubUrl: 'https://github.com/twojanazwa/PSLogAnalyzer',
+                        icon: 'fa-chart-bar'
+                    },
+                    {
+                        title: 'AutomatedBackup',
+                        description: 'Narzędzie do planowania backupów folderów z kompresją 7zip, wsparciem dla FTP i powiadomieniami e-mail.',
+                        tags: ['Backup', 'Harmonogram', 'FTP'],
+                        githubUrl: 'https://github.com/twojanazwa/AutomatedBackup',
+                        icon: 'fa-hdd'
+                    },
+                    {
+                        title: 'PSGitSync',
+                        description: 'Skrypt synchronizujący wiele repozytoriów Git jednocześnie. Przydatny przy pracy z wieloma projektami.',
+                        tags: ['Git', 'DevOps', 'Automatyzacja'],
+                        githubUrl: 'https://github.com/twojanazwa/PSGitSync',
+                        icon: 'fa-code-fork'
+                    }
+                ]
+            };
+
+            // -------------------------------------------------------------
+            // AKTUALIZACJA ZAWARTOŚCI STRONY (nie musisz nic zmieniać poniżej)
+            // -------------------------------------------------------------
+            // Aktualizacja nagłówka
+            document.querySelector('h1').textContent = userData.name;
+            document.querySelector('.avatar span').textContent = userData.initials;
+            document.querySelector('.bio').textContent = userData.bio;
+
+            // Aktualizacja linków społecznościowych
+            const socialLinks = document.querySelectorAll('.social-links a');
+            // Kolejność: GitHub, LinkedIn, Twitter (zgodnie z HTML)
+            if (socialLinks.length >= 1) socialLinks[0].href = userData.github || '#';
+            if (socialLinks.length >= 2) {
+                if (userData.linkedin) {
+                    socialLinks[1].href = userData.linkedin;
+                } else {
+                    socialLinks[1].style.display = 'none';
+                }
+            }
+            if (socialLinks.length >= 3) {
+                if (userData.twitter) {
+                    socialLinks[2].href = userData.twitter;
+                } else {
+                    socialLinks[2].style.display = 'none';
+                }
+            }
+
+            // Renderowanie projektów
+            const container = document.getElementById('projects-container');
+            container.innerHTML = ''; // Wyczyść
+
+            userData.projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+
+                // Ikona
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'project-icon';
+                const icon = document.createElement('i');
+                icon.className = `fas ${project.icon || 'fa-code'}`;
+                iconDiv.appendChild(icon);
+
+                // Tytuł
+                const title = document.createElement('h3');
+                title.className = 'project-title';
+                title.textContent = project.title;
+
+                // Opis
+                const desc = document.createElement('p');
+                desc.className = 'project-description';
+                desc.textContent = project.description;
+
+                // Tagi
+                const tagsDiv = document.createElement('div');
+                tagsDiv.className = 'project-tags';
+                project.tags.forEach(tagText => {
+                    const tag = document.createElement('span');
+                    tag.className = 'tag';
+                    tag.textContent = tagText;
+                    tagsDiv.appendChild(tag);
+                });
+
+                // Linki
+                const linksDiv = document.createElement('div');
+                linksDiv.className = 'project-links';
+                
+                if (project.githubUrl) {
+                    const ghLink = document.createElement('a');
+                    ghLink.href = project.githubUrl;
+                    ghLink.target = '_blank';
+                    ghLink.rel = 'noopener noreferrer';
+                    ghLink.innerHTML = '<i class="fab fa-github"></i> GitHub';
+                    linksDiv.appendChild(ghLink);
+                }
+
+                // (Można dodać link do demo, jeśli potrzebne)
+                
+                card.appendChild(iconDiv);
+                card.appendChild(title);
+                card.appendChild(desc);
+                card.appendChild(tagsDiv);
+                card.appendChild(linksDiv);
+                
+                container.appendChild(card);
+            });
+
+            // Ustawienie roku w stopce
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        })();
+    </script>
+    <!-- 
+        JAK UŻYWAĆ:
+        1. Skopiuj cały ten plik do pliku index.html w swoim repozytorium (np. twojanazwa.github.io).
+        2. Zmień dane w sekcji "KONFIGURACJA" w skrypcie JavaScript (imię, linki, projekty).
+        3. Jeśli chcesz dodać własne zdjęcie zamiast awatara z inicjałami, zamień div.avatar na <img>.
+        4. Gotowe! Po wgraniu na GitHub Pages strona będzie dostępna pod https://twojanazwa.github.io
+    -->
+</body>
+</html>
