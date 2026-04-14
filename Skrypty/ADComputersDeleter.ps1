@@ -1,16 +1,16 @@
-# Wczytanie listy nazw komputerów z pliku tekstowego
-# Plik powinien zawieraæ jedn¹ nazwê komputera w ka¿dym wierszu
-$Computers = Get-Content "œcie¿ka do pliku .xlsx .txt"
+# Wczytanie listy nazw komputerÃ³w z pliku tekstowego
+# Plik powinien zawieraÄ‡ jednÄ… nazwÄ™ komputera w kaÅ¼dym wierszu
+$Computers = Get-Content "Å›cieÅ¼ka do pliku .txt"
 
-# Rozpoczêcie pêtli przechodz¹cej przez ka¿dy komputer z listy
+# RozpoczÄ™cie pÄ™tli przechodzÄ…cej przez kaÅ¼dy komputer z listy
 foreach($Computer in $computers)
 {
-    # Usuniêcie komputera z Active Directory:
-    # -Identity     : nazwa komputera do usuniêcia
-    # -Confirm:$False : pominiêcie pytania o potwierdzenie (cicha operacja)
+    # UsuniÄ™cie komputera z Active Directory:
+    # -Identity     : nazwa komputera do usuniÄ™cia
+    # -Confirm:$False : pominiÄ™cie pytania o potwierdzenie (cicha operacja)
     Remove-ADComputer -Identity "$Computer" -Confirm:$False
     
-    # Wyœwietlenie informacji o usuniêtym komputerze w konsoli
+    # WyÅ›wietlenie informacji o usuniÄ™tym komputerze w konsoli
     Write-Output "$Computer removed"
 }
 
