@@ -2,10 +2,12 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerShell Portfolio – Twoje Imię i Nazwisko</title>
-    <!-- Font Awesome dla ikon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Jan Developer | Portfolio DevOps & Automation</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,396 +16,787 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Consolas', 'Monaco', monospace;
-            background-color: #f6f8fa;
-            color: #24292f;
-            line-height: 1.6;
-            padding: 20px;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #f1f5f9 0%, #e9eef3 100%);
+            color: #1e293b;
+            line-height: 1.5;
+            padding: 32px 24px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            background: rgba(255,255,255,0.96);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.03);
             overflow: hidden;
-            padding: 40px;
+            position: relative;
+        }
+
+        /* Gradient border na górze */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #012456, #2b6a9f, #00a3e0, #012456);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .inner {
+            padding: 2rem 2rem 2rem 2rem;
         }
 
         /* Header */
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
         }
 
         .avatar {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #012456, #00337C);
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(135deg, #012456, #0b4c8c, #1e6eb5);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             color: white;
-            font-size: 48px;
-            font-weight: bold;
-            box-shadow: 0 6px 14px rgba(1, 36, 86, 0.2);
+            font-size: 52px;
+            font-weight: 700;
+            box-shadow: 0 15px 30px -10px rgba(1,36,86,0.4);
+            transition: transform 0.25s ease;
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        .avatar:hover {
+            transform: scale(1.02);
         }
 
         h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #012456, #1e6eb5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
             margin-bottom: 8px;
-            color: #012456;
         }
 
         .badge {
-            display: inline-block;
-            background: #012456;
-            color: white;
-            padding: 6px 18px;
-            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #01245610;
+            color: #012456;
+            padding: 8px 24px;
+            border-radius: 60px;
             font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            border: 1px solid #01245620;
             margin-bottom: 20px;
-            border: 1px solid #1e4f8a;
         }
 
         .bio {
-            max-width: 700px;
+            max-width: 680px;
             margin: 0 auto;
-            color: #57606a;
-            font-size: 1.2rem;
+            color: #334155;
+            font-size: 1.1rem;
+            background: #f8fafc;
+            padding: 12px 24px;
+            border-radius: 60px;
+            display: inline-block;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 28px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 28px;
         }
 
         .social-links a {
-            color: #012456;
+            color: #334155;
             font-size: 1.8rem;
-            transition: transform 0.2s, color 0.2s;
+            transition: all 0.2s;
+            background: #f1f5f9;
+            width: 52px;
+            height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+            text-decoration: none;
         }
-
         .social-links a:hover {
-            color: #0078d4;
-            transform: scale(1.1);
+            color: white;
+            background: #012456;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(1,36,86,0.25);
         }
 
-        /* Sekcja projektów */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #012456;
-            border-bottom: 3px solid #eaeef2;
+        /* Filtry */
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 2px solid #e2e8f0;
             padding-bottom: 12px;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title i {
+            color: #012456;
+            font-size: 1.8rem;
         }
 
-        .project-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e1e4e8;
-            transition: all 0.2s ease;
+        .filter-tabs {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #475569;
+            font-family: inherit;
+        }
+        .filter-btn i {
+            margin-right: 8px;
+        }
+        .filter-btn:hover {
+            background: #eef2ff;
+            color: #012456;
+        }
+        .filter-btn.active {
+            background: #012456;
+            color: white;
+            box-shadow: 0 4px 12px rgba(1,36,86,0.3);
+        }
+        .filter-btn.active i {
+            color: white;
+        }
+
+        /* Kafelki projektów */
+        .projects-grid {
             display: flex;
             flex-direction: column;
+            gap: 18px;
+            margin: 20px 0 20px 0;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(1, 36, 86, 0.08);
-            border-color: #012456;
+        .project-row {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            padding: 20px 28px;
+            border: 1px solid #e9edf2;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-row::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #012456, #2b6a9f);
+            transition: width 0.3s ease;
+        }
+        .project-row:hover::after {
+            width: 100%;
+        }
+        .project-row:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+            background: #fefefe;
+        }
+
+        .project-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex: 2 1 280px;
+            pointer-events: none;
         }
 
         .project-icon {
-            font-size: 2.5rem;
-            color: #012456;
-            margin-bottom: 16px;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #012456;
-        }
-
-        .project-description {
-            color: #57606a;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            background: #eef2f6;
-            color: #012456;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 16px;
-            margin-top: auto;
-        }
-
-        .project-links a {
-            color: #57606a;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
+            font-size: 2.2rem;
+            background: #eef2ff;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            border-radius: 20px;
+            color: #012456;
+            transition: 0.2s;
+        }
+        .project-row:hover .project-icon {
+            background: #012456;
+            color: white;
         }
 
-        .project-links a:hover {
+        .project-details h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #0f172a;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .language-badge {
+            background: #eef2ff;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
             color: #012456;
         }
 
-        /* Stopka */
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            color: #475569;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-actions {
+            pointer-events: auto;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+        }
+        .btn-primary {
+            background: #012456;
+            color: white;
+            border: none;
+            box-shadow: 0 2px 6px rgba(1,36,86,0.2);
+        }
+        .btn-primary:hover {
+            background: #00337C;
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(1,36,86,0.2);
+        }
+
+        /* Modal - układ dwukolumnowy */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: white;
+            max-width: 1000px;
+            width: 90%;
+            max-height: 85vh;
+            border-radius: 2rem;
+            box-shadow: 0 40px 70px rgba(0,0,0,0.4);
+            overflow-y: auto;
+            transform: scale(0.96);
+            transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .active .modal-content {
+            transform: scale(1);
+        }
+        .modal-header {
+            padding: 28px 32px 12px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .modal-header h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #012456, #1f6eb0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .modal-close {
+            background: #f1f5f9;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 60px;
+            font-size: 28px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover {
+            background: #012456;
+            color: white;
+            transform: rotate(90deg);
+        }
+        .modal-body {
+            padding: 24px 32px 32px 32px;
+        }
+        .modal-two-columns {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+        .modal-left {
+            flex: 1;
+            min-width: 0;
+        }
+        .modal-right {
+            flex: 1;
+            min-width: 0;
+        }
+        .project-screenshot {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.2s;
+            display: block;
+            background: #f1f5f9;
+        }
+        .project-full-description {
+            color: #1e293b;
+            line-height: 1.65;
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .tag {
+            background: #eef2ff;
+            color: #012456;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .modal-footer {
+            border-top: 1px solid #eef2f6;
+            padding-top: 24px;
+            display: flex;
+            gap: 16px;
+        }
+
+        /* No projects */
+        .no-projects-message {
+            text-align: center;
+            padding: 48px;
+            background: #f8fafc;
+            border-radius: 2rem;
+            color: #475569;
+            border: 1px dashed #cbd5e1;
+        }
+
         footer {
             margin-top: 60px;
             text-align: center;
-            color: #8c959f;
-            font-size: 0.9rem;
-            border-top: 1px solid #eaeef2;
-            padding-top: 30px;
+            padding: 24px 0 16px 0;
+            color: #5b6e8c;
+            font-size: 0.85rem;
+            border-top: 1px solid #e9edf2;
         }
 
-        /* Responsywność */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .inner { padding: 1.2rem; }
+            h1 { font-size: 2.2rem; }
+            .project-row { flex-direction: column; align-items: stretch; }
+            .project-info { gap: 16px; }
+            .project-icon { width: 48px; height: 48px; font-size: 1.6rem; }
+            .filter-section { flex-direction: column; align-items: flex-start; }
+            .modal-two-columns {
+                flex-direction: column;
+                gap: 24px;
             }
-            h1 {
-                font-size: 2rem;
-            }
-            .avatar {
-                width: 90px;
-                height: 90px;
-                font-size: 36px;
+            .modal-left, .modal-right {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
+    <div class="inner">
         <header>
-            <!-- Awatar z inicjałami – możesz podmienić na zdjęcie -->
-            <div class="avatar">
-                <span>JK</span> <!-- Zmień na swoje inicjały -->
-            </div>
-            <h1>Jan Kowalski</h1> <!-- Twoje imię i nazwisko -->
+            <div class="avatar"><span>JD</span></div>
+            <h1>Jan Developer</h1>
             <div class="badge">
-                <i class="fas fa-terminal" style="margin-right: 8px;"></i>PowerShell Developer & Automator
+                <i class="fas fa-terminal"></i> 
+                <span>Full‑Stack DevOps | PowerShell · Python · Bash</span>
             </div>
-            <p class="bio">
-                Cześć! 👋 Specjalizuję się w automatyzacji zadań i tworzeniu narzędzi w PowerShell. 
-                Poniżej znajdziesz moje najciekawsze projekty – od modułów po skrypty usprawniające codzienną pracę.
-            </p>
+            <p class="bio"><i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> Automatyzacja, wydajność i eleganckie rozwiązania. Kliknij w projekt i poznaj szczegóły.</p>
             <div class="social-links">
-                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <!-- Możesz dodać więcej linków -->
+                <a href="#" target="_blank" title="GitHub" id="githubLink"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="LinkedIn" id="linkedinLink"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Twitter usunięty -->
             </div>
         </header>
 
         <section>
-            <h2 class="section-title">
-                <i class="fas fa-code-branch" style="margin-right: 12px;"></i>Projekty PowerShell
-            </h2>
-            <div class="projects-grid" id="projects-container">
-                <!-- Karty projektów zostaną wstawione przez JavaScript -->
+            <div class="filter-section">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i> 
+                    <span>Projekty</span>
+                </div>
+                <div class="filter-tabs" id="filterContainer"></div>
             </div>
+            <div class="projects-grid" id="projects-container"></div>
         </section>
 
         <footer>
-            <p>🚀 Hostowane na <i class="fab fa-github"></i> GitHub Pages | Ostatnia aktualizacja: <span id="current-year"></span></p>
+            <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> — Jan Developer <i class="fas fa-heart" style="color: #012456;"></i> automatyzacja</p>
         </footer>
     </div>
+</div>
 
-    <script>
-        (function() {
-            // -------------------------------------------------------------
-            // KONFIGURACJA – TUTAJ WPISZ SWOJE DANE I PROJEKTY
-            // -------------------------------------------------------------
-            const userData = {
-                name: 'Jan Kowalski',               // Twoje imię i nazwisko
-                initials: 'JK',                      // Inicjały wyświetlane w awatarze
-                bio: 'Cześć! 👋 Specjalizuję się w automatyzacji zadań i tworzeniu narzędzi w PowerShell. Poniżej znajdziesz moje najciekawsze projekty – od modułów po skrypty usprawniające codzienną pracę.',
-                github: 'https://github.com/twojanazwa',    // Link do GitHub
-                linkedin: 'https://linkedin.com/in/twojprofil', // lub usuń
-                twitter: '',                                   // opcjonalnie
-                // Lista projektów – dodaj tyle, ile potrzebujesz
-                projects: [
-                    {
-                        title: 'PSModuleManager',
-                        description: 'Moduł PowerShell do zarządzania modułami – instalacja, aktualizacja, czyszczenie starych wersji. Obsługa PSGallery i repozytoriów lokalnych.',
-                        tags: ['PowerShell', 'Moduł', 'PSGallery'],
-                        githubUrl: 'https://github.com/twojanazwa/PSModuleManager',
-                        icon: 'fa-cubes' // ikona Font Awesome
-                    },
-                    {
-                        title: 'AD-Audit-Toolkit',
-                        description: 'Zestaw skryptów do audytu Active Directory: raporty o nieaktywnych kontach, wygasających hasłach, uprawnieniach NTFS.',
-                        tags: ['Active Directory', 'Audyt', 'Bezpieczeństwo'],
-                        githubUrl: 'https://github.com/twojanazwa/AD-Audit-Toolkit',
-                        icon: 'fa-shield-hal'
-                    },
-                    {
-                        title: 'WinSysCleaner',
-                        description: 'Skrypt czyszczący system Windows: tempy, logi, cache przeglądarek, stare punkty przywracania. Działa w tle z logowaniem.',
-                        tags: ['Windows', 'Maintenance', 'CLI'],
-                        githubUrl: 'https://github.com/twojanazwa/WinSysCleaner',
-                        icon: 'fa-broom'
-                    },
-                    {
-                        title: 'PSLogAnalyzer',
-                        description: 'Szybki analizator logów zdarzeń Windows napisany w PowerShell. Filtruje, agreguje i eksportuje do CSV/HTML.',
-                        tags: ['Logi', 'Analiza', 'Raporty'],
-                        githubUrl: 'https://github.com/twojanazwa/PSLogAnalyzer',
-                        icon: 'fa-chart-bar'
-                    },
-                    {
-                        title: 'AutomatedBackup',
-                        description: 'Narzędzie do planowania backupów folderów z kompresją 7zip, wsparciem dla FTP i powiadomieniami e-mail.',
-                        tags: ['Backup', 'Harmonogram', 'FTP'],
-                        githubUrl: 'https://github.com/twojanazwa/AutomatedBackup',
-                        icon: 'fa-hdd'
-                    },
-                    {
-                        title: 'PSGitSync',
-                        description: 'Skrypt synchronizujący wiele repozytoriów Git jednocześnie. Przydatny przy pracy z wieloma projektami.',
-                        tags: ['Git', 'DevOps', 'Automatyzacja'],
-                        githubUrl: 'https://github.com/twojanazwa/PSGitSync',
-                        icon: 'fa-code-fork'
-                    }
-                ]
-            };
+<!-- Modal z układem dwukolumnowym -->
+<div class="modal-overlay" id="projectModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Projekt</h2>
+            <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-two-columns">
+                <div class="modal-left">
+                    <img id="modalImage" src="" alt="Screenshot projektu" class="project-screenshot">
+                </div>
+                <div class="modal-right">
+                    <div id="modalDescription" class="project-full-description"></div>
+                    <div id="modalTags" class="modal-tags"></div>
+                    <div class="modal-footer">
+                        <a id="modalGithubBtn" href="#" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-github"></i> Repozytorium
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            // -------------------------------------------------------------
-            // AKTUALIZACJA ZAWARTOŚCI STRONY (nie musisz nic zmieniać poniżej)
-            // -------------------------------------------------------------
-            // Aktualizacja nagłówka
-            document.querySelector('h1').textContent = userData.name;
-            document.querySelector('.avatar span').textContent = userData.initials;
-            document.querySelector('.bio').textContent = userData.bio;
-
-            // Aktualizacja linków społecznościowych
-            const socialLinks = document.querySelectorAll('.social-links a');
-            // Kolejność: GitHub, LinkedIn, Twitter (zgodnie z HTML)
-            if (socialLinks.length >= 1) socialLinks[0].href = userData.github || '#';
-            if (socialLinks.length >= 2) {
-                if (userData.linkedin) {
-                    socialLinks[1].href = userData.linkedin;
-                } else {
-                    socialLinks[1].style.display = 'none';
+<script>
+    (function() {
+        // =============================================================
+        // DANE PROFILU I PROJEKTÓW
+        // =============================================================
+        const userData = {
+            name: 'Jan Developer',
+            initials: 'JD',
+            bio: 'Automatyzuję infrastrukturę, piszę narzędzia CLI i skrypty audytowe. PowerShell, Python, Bash to mój codzienny chleb.',
+            github: 'https://github.com/jandeveloper',
+            linkedin: 'https://linkedin.com/in/jan-dev',
+            projects: [
+                // PowerShell
+                {
+                    title: 'PSModuleManager',
+                    shortDesc: 'Zaawansowany menedżer modułów PowerShell',
+                    language: 'PowerShell',
+                    tags: ['PowerShell', 'PSGallery', 'Moduł', 'DevOps'],
+                    icon: 'fa-cubes',
+                    githubUrl: 'https://github.com/jandeveloper/PSModuleManager',
+                    fullDescription: 'Kompleksowe narzędzie do zarządzania modułami PowerShell – aktualizacje masowe, instalacja offline z plików .nupkg, tworzenie manifestów i czyszczenie starych wersji. Posiada też funkcję eksportu listy modułów do JSON/HTML.',
+                    //imageUrl: 'https://placehold.co/800x450/012456/white?text=PSModuleManager+GUI&font=montserrat'
+					imageUrl: '1.png'
+                },
+                {
+                    title: 'AD-Audit-Toolkit',
+                    shortDesc: 'Audyt bezpieczeństwa Active Directory',
+                    language: 'PowerShell',
+                    tags: ['Active Directory', 'Security', 'Reporting'],
+                    icon: 'fa-shield-hal',
+                    githubUrl: 'https://github.com/jandeveloper/AD-Audit-Toolkit',
+                    fullDescription: 'Zestaw skryptów do zaawansowanego audytu AD: raporty HTML o nieaktywnych kontach, wygasających hasłach, członkostwie w grupach uprzywilejowanych oraz zmianach w GPO. Automatycznie wysyła raporty e-mailem.',
+                    imageUrl: 'https://placehold.co/800x450/0b4c6b/white?text=Active+Directory+Audit&font=montserrat'
+                },
+                // Python
+                {
+                    title: 'NetworkScanner Pro',
+                    shortDesc: 'Skaner sieci z analizą portów i usług',
+                    language: 'Python',
+                    tags: ['Python', 'Scapy', 'asyncio', 'PyQt6'],
+                    icon: 'fa-network-wired',
+                    githubUrl: 'https://github.com/jandeveloper/NetworkScanner-Pro',
+                    fullDescription: 'Nowoczesny skaner sieciowy z GUI napisany w PyQt6, obsługujący wielowątkowość i asynchroniczne pingi. Wykrywa urządzenia, otwarte porty, a także fingerprint usług (HTTP, SSH, FTP). Eksport do CSV/JSON oraz tryb terminalowy dla serwerów headless.',
+                    imageUrl: 'https://placehold.co/800x450/306998/white?text=NetworkScanner+Python+GUI&font=montserrat'
+                },
+                {
+                    title: 'DataVisualizer',
+                    shortDesc: 'Interaktywna wizualizacja danych z CSV',
+                    language: 'Python',
+                    tags: ['Pandas', 'Plotly', 'Data Science'],
+                    icon: 'fa-chart-line',
+                    githubUrl: 'https://github.com/jandeveloper/DataVisualizer',
+                    fullDescription: 'Narzędzie CLI oraz webowy dashboard (Streamlit) do analizy plików CSV. Generuje zaawansowane wykresy (heatmapy, histogramy, wykresy punktowe) i raporty PDF. Wbudowane przetwarzanie brakujących danych i agregacje.',
+                    imageUrl: 'https://placehold.co/800x450/2c5f2d/white?text=DataVisualizer+Dashboard&font=montserrat'
+                },
+                // Bash
+                {
+                    title: 'Dotfiles Commander',
+                    shortDesc: 'Zarządzanie plikami konfiguracyjnymi Linux',
+                    language: 'Bash',
+                    tags: ['Bash', 'Zsh', 'Dotfiles', 'Git'],
+                    icon: 'fa-terminal',
+                    githubUrl: 'https://github.com/jandeveloper/dotfiles-commander',
+                    fullDescription: 'Inteligentny skrypt Bash do zarządzania dotfiles (zsh, bash, vim, tmux). Tworzy kopie zapasowe, przywraca konfiguracje, synchronizuje z repozytorium i automatyzuje instalację niezbędnych pluginów. Zawiera funkcję "boostrap new machine".',
+                    imageUrl: 'https://placehold.co/800x450/4EAA25/white?text=Dotfiles+Commander+Bash&font=montserrat'
+                },
+                {
+                    title: 'ServerHealth Sentinel',
+                    shortDesc: 'Monitoring serwerów + alerty',
+                    language: 'Bash',
+                    tags: ['Bash', 'Cron', 'Telegram API', 'Prometheus Exporter'],
+                    icon: 'fa-heartbeat',
+                    githubUrl: 'https://github.com/jandeveloper/ServerHealthSentinel',
+                    fullDescription: 'Lekki skrypt do monitorowania CPU, RAM, dysków, uptime oraz dostępności kluczowych usług (nginx, mysql). W przypadku przekroczenia progów wysyła powiadomienia do Slacka/Telegrama lub email. Może działać jako eksporter dla Prometheusa.',
+                    imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Server+Health+Monitor&font=montserrat'
                 }
+            ]
+        };
+
+        // Aktualizacja danych w DOM
+        document.querySelector('h1').textContent = userData.name;
+        document.querySelector('.avatar span').textContent = userData.initials;
+        document.querySelector('.bio').innerHTML = `<i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> ${userData.bio}`;
+        const githubA = document.getElementById('githubLink');
+        const linkedinA = document.getElementById('linkedinLink');
+        if(githubA) githubA.href = userData.github;
+        if(linkedinA) linkedinA.href = userData.linkedin;
+
+        // Elementy modala
+        const modalOverlay = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+        const modalDesc = document.getElementById('modalDescription');
+        const modalTagsDiv = document.getElementById('modalTags');
+        const modalGithubBtn = document.getElementById('modalGithubBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openModal(project) {
+            modalTitle.textContent = project.title;
+            modalDesc.innerHTML = project.fullDescription || 'Brak szczegółowego opisu, ale możesz sprawdzić repozytorium.';
+            
+            if(project.imageUrl) {
+                modalImage.src = project.imageUrl;
+                modalImage.style.display = 'block';
+                modalImage.alt = `Screenshot ${project.title}`;
+            } else {
+                modalImage.src = 'https://placehold.co/800x450/e2e8f0/64748b?text=Brak+zrzutu+ekranu';
+                modalImage.style.display = 'block';
             }
-            if (socialLinks.length >= 3) {
-                if (userData.twitter) {
-                    socialLinks[2].href = userData.twitter;
-                } else {
-                    socialLinks[2].style.display = 'none';
-                }
+            
+            modalTagsDiv.innerHTML = '';
+            project.tags.forEach(tag => {
+                const tagSpan = document.createElement('span');
+                tagSpan.className = 'tag';
+                tagSpan.textContent = tag;
+                modalTagsDiv.appendChild(tagSpan);
+            });
+            
+            modalGithubBtn.href = project.githubUrl || '#';
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
+        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+        // Filtry i lista projektów
+        const languagesSet = [...new Set(userData.projects.map(p => p.language))];
+        const filterContainer = document.getElementById('filterContainer');
+        const projectsContainer = document.getElementById('projects-container');
+        let currentFilter = 'Wszystkie';
+
+        function renderProjects(filterLang) {
+            const filtered = filterLang === 'Wszystkie' ? userData.projects : userData.projects.filter(p => p.language === filterLang);
+            projectsContainer.innerHTML = '';
+            
+            if(filtered.length === 0) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'no-projects-message';
+                emptyDiv.innerHTML = `<i class="fas fa-filter"></i> Brak projektów w kategorii "${filterLang}". Spróbuj innego filtra.`;
+                projectsContainer.appendChild(emptyDiv);
+                return;
             }
 
-            // Renderowanie projektów
-            const container = document.getElementById('projects-container');
-            container.innerHTML = ''; // Wyczyść
-
-            userData.projects.forEach(project => {
-                const card = document.createElement('div');
-                card.className = 'project-card';
-
-                // Ikona
-                const iconDiv = document.createElement('div');
-                iconDiv.className = 'project-icon';
-                const icon = document.createElement('i');
-                icon.className = `fas ${project.icon || 'fa-code'}`;
-                iconDiv.appendChild(icon);
-
-                // Tytuł
-                const title = document.createElement('h3');
-                title.className = 'project-title';
-                title.textContent = project.title;
-
-                // Opis
-                const desc = document.createElement('p');
-                desc.className = 'project-description';
-                desc.textContent = project.description;
-
-                // Tagi
-                const tagsDiv = document.createElement('div');
-                tagsDiv.className = 'project-tags';
-                project.tags.forEach(tagText => {
-                    const tag = document.createElement('span');
-                    tag.className = 'tag';
-                    tag.textContent = tagText;
-                    tagsDiv.appendChild(tag);
+            filtered.forEach(proj => {
+                const row = document.createElement('div');
+                row.className = 'project-row';
+                row.addEventListener('click', (e) => {
+                    if(e.target.closest('a')) return;
+                    openModal(proj);
                 });
 
-                // Linki
-                const linksDiv = document.createElement('div');
-                linksDiv.className = 'project-links';
-                
-                if (project.githubUrl) {
-                    const ghLink = document.createElement('a');
-                    ghLink.href = project.githubUrl;
-                    ghLink.target = '_blank';
-                    ghLink.rel = 'noopener noreferrer';
-                    ghLink.innerHTML = '<i class="fab fa-github"></i> GitHub';
-                    linksDiv.appendChild(ghLink);
-                }
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'project-info';
+                const iconSpan = document.createElement('div');
+                iconSpan.className = 'project-icon';
+                iconSpan.innerHTML = `<i class="fas ${proj.icon || 'fa-code'}"></i>`;
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'project-details';
+                detailsDiv.innerHTML = `
+                    <h3>${escapeHtml(proj.title)} <span class="language-badge">${escapeHtml(proj.language)}</span></h3>
+                    <div class="project-meta"><span><i class="far fa-file-alt"></i> ${escapeHtml(proj.shortDesc)}</span></div>
+                `;
+                infoDiv.appendChild(iconSpan);
+                infoDiv.appendChild(detailsDiv);
 
-                // (Można dodać link do demo, jeśli potrzebne)
-                
-                card.appendChild(iconDiv);
-                card.appendChild(title);
-                card.appendChild(desc);
-                card.appendChild(tagsDiv);
-                card.appendChild(linksDiv);
-                
-                container.appendChild(card);
+                const actionsDiv = document.createElement('div');
+                actionsDiv.className = 'project-actions';
+                const ghButton = document.createElement('a');
+                ghButton.href = proj.githubUrl || '#';
+                ghButton.target = '_blank';
+                ghButton.rel = 'noopener noreferrer';
+                ghButton.className = 'btn btn-primary';
+                ghButton.innerHTML = '<i class="fab fa-github"></i> GitHub';
+                ghButton.addEventListener('click', (e) => e.stopPropagation());
+                actionsDiv.appendChild(ghButton);
+                row.appendChild(infoDiv);
+                row.appendChild(actionsDiv);
+                projectsContainer.appendChild(row);
+            });
+        }
+
+        function escapeHtml(str) { 
+            return str.replace(/[&<>]/g, function(m){
+                if(m==='&') return '&amp;';
+                if(m==='<') return '&lt;';
+                if(m==='>') return '&gt;';
+                return m;
+            }); 
+        }
+
+        function renderFilters() {
+            filterContainer.innerHTML = '';
+            
+            // Przycisk "Wszystkie" z ikoną
+            const allBtn = document.createElement('button');
+            allBtn.innerHTML = '<i class="fas fa-layer-group"></i> Wszystkie';
+            allBtn.className = 'filter-btn active';
+            allBtn.dataset.filter = 'Wszystkie';
+            filterContainer.appendChild(allBtn);
+
+            // Przyciski dla języków z ikonami
+            languagesSet.forEach(lang => {
+                const btn = document.createElement('button');
+                let iconHtml = '';
+                switch(lang) {
+                    case 'PowerShell':
+                        iconHtml = '<i class="fas fa-terminal"></i> ';
+                        break;
+                    case 'Python':
+                        iconHtml = '<i class="fab fa-python"></i> ';
+                        break;
+                    case 'Bash':
+                        iconHtml = '<i class="fas fa-code"></i> ';
+                        break;
+                    default:
+                        iconHtml = '<i class="fas fa-code-branch"></i> ';
+                }
+                btn.innerHTML = iconHtml + lang;
+                btn.className = 'filter-btn';
+                btn.dataset.filter = lang;
+                filterContainer.appendChild(btn);
             });
 
-            // Ustawienie roku w stopce
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        })();
-    </script>
-    <!-- 
-        JAK UŻYWAĆ:
-        1. Skopiuj cały ten plik do pliku index.html w swoim repozytorium (np. twojanazwa.github.io).
-        2. Zmień dane w sekcji "KONFIGURACJA" w skrypcie JavaScript (imię, linki, projekty).
-        3. Jeśli chcesz dodać własne zdjęcie zamiast awatara z inicjałami, zamień div.avatar na <img>.
-        4. Gotowe! Po wgraniu na GitHub Pages strona będzie dostępna pod https://twojanazwa.github.io
-    -->
+            // Obsługa kliknięć
+            filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    renderProjects(currentFilter);
+                });
+            });
+        }
+
+        renderFilters();
+        renderProjects('Wszystkie');
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    })();
+</script>
 </body>
 </html>
