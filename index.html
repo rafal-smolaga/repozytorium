@@ -495,17 +495,15 @@
 <div class="container">
     <div class="inner">
         <header>
-            <div class="avatar"><span>JD</span></div>
-            <h1>Jan Developer</h1>
+            <div class="avatar"><span>RS</span></div>
+            <h1>Rafał Smołaga</h1>
             <div class="badge">
                 <i class="fas fa-terminal"></i> 
-                <span>Full‑Stack DevOps | PowerShell · Python · Bash</span>
+                <span>PowerShell | Samouk z pasją – piszę skrypty, które rozwiązują konkretne problemy</span>
             </div>
             <p class="bio"><i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> Automatyzacja, wydajność i eleganckie rozwiązania. Kliknij w projekt i poznaj szczegóły.</p>
             <div class="social-links">
-                <a href="#" target="_blank" title="GitHub" id="githubLink"><i class="fab fa-github"></i></a>
                 <a href="#" target="_blank" title="LinkedIn" id="linkedinLink"><i class="fab fa-linkedin-in"></i></a>
-                <!-- Twitter usunięty -->
             </div>
         </header>
 
@@ -521,7 +519,7 @@
         </section>
 
         <footer>
-            <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> — Jan Developer <i class="fas fa-heart" style="color: #012456;"></i> automatyzacja</p>
+            <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga <i class="fas fa-microchip" style="color: #012456;"></i> automatyzacja</p>
         </footer>
     </div>
 </div>
@@ -558,69 +556,66 @@
         // DANE PROFILU I PROJEKTÓW
         // =============================================================
         const userData = {
-            name: 'Jan Developer',
-            initials: 'JD',
-            bio: 'Automatyzuję infrastrukturę, piszę narzędzia CLI i skrypty audytowe. PowerShell, Python, Bash to mój codzienny chleb.',
-            github: 'https://github.com/jandeveloper',
-            linkedin: 'https://linkedin.com/in/jan-dev',
+            name: 'Rafał Smołaga',
+            initials: 'RS',
+            bio: 'Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.',
+            linkedin: 'https://linkedin.com/in/rafal-smolaga',
             projects: [
                 // PowerShell
                 {
-                    title: 'PSModuleManager',
-                    shortDesc: 'Zaawansowany menedżer modułów PowerShell',
+                    title: 'ADComputersRenamer',
+                    shortDesc: 'Zmiana nazw komputerów w domenie na podstawie pliku Excel',
                     language: 'PowerShell',
-                    tags: ['PowerShell', 'PSGallery', 'Moduł', 'DevOps'],
-                    icon: 'fa-cubes',
-                    githubUrl: 'https://github.com/jandeveloper/PSModuleManager',
-                    fullDescription: 'Kompleksowe narzędzie do zarządzania modułami PowerShell – aktualizacje masowe, instalacja offline z plików .nupkg, tworzenie manifestów i czyszczenie starych wersji. Posiada też funkcję eksportu listy modułów do JSON/HTML.',
-                    //imageUrl: 'https://placehold.co/800x450/012456/white?text=PSModuleManager+GUI&font=montserrat'
-					imageUrl: '1.png'
+                    tags: ['PowerShell', 'AD', 'ImportExcel'],
+                    icon: 'fa-desktop',
+                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersRenamer.ps1',
+                    fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów, a następnie dla każdego komputera wykonuje zmianę nazwy i automatyczny restart. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do zmiany nazw musi należeć do grupy Domain Admins lub posiadać delegowane uprawnienia do modyfikacji obiektów komputerów w Active Directory.',
+			    	imageUrl: 'https://placehold.co/800x450/012456/white?text=ADComputersRenamer+&font=montserrat'
                 },
                 {
-                    title: 'AD-Audit-Toolkit',
-                    shortDesc: 'Audyt bezpieczeństwa Active Directory',
+                    title: 'ADComputersDeleter',
+                    shortDesc: 'Usuwanie komputerów z Active Directory na podstawie listy z pliku tekstowego',
                     language: 'PowerShell',
-                    tags: ['Active Directory', 'Security', 'Reporting'],
-                    icon: 'fa-shield-hal',
-                    githubUrl: 'https://github.com/jandeveloper/AD-Audit-Toolkit',
-                    fullDescription: 'Zestaw skryptów do zaawansowanego audytu AD: raporty HTML o nieaktywnych kontach, wygasających hasłach, członkostwie w grupach uprzywilejowanych oraz zmianach w GPO. Automatycznie wysyła raporty e-mailem.',
-                    imageUrl: 'https://placehold.co/800x450/0b4c6b/white?text=Active+Directory+Audit&font=montserrat'
-                },
-                // Python
-                {
-                    title: 'NetworkScanner Pro',
-                    shortDesc: 'Skaner sieci z analizą portów i usług',
-                    language: 'Python',
-                    tags: ['Python', 'Scapy', 'asyncio', 'PyQt6'],
-                    icon: 'fa-network-wired',
-                    githubUrl: 'https://github.com/jandeveloper/NetworkScanner-Pro',
-                    fullDescription: 'Nowoczesny skaner sieciowy z GUI napisany w PyQt6, obsługujący wielowątkowość i asynchroniczne pingi. Wykrywa urządzenia, otwarte porty, a także fingerprint usług (HTTP, SSH, FTP). Eksport do CSV/JSON oraz tryb terminalowy dla serwerów headless.',
-                    imageUrl: 'https://placehold.co/800x450/306998/white?text=NetworkScanner+Python+GUI&font=montserrat'
+                    tags: ['PowerShell', 'AD', 'ImportExcel'],
+                    icon: 'fa-trash-alt',
+                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersDeleter.ps1',
+                    fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do usuwania komputerów musi posiadać uprawnienia do modyfikacji i usuwania obiektów w Active Directory.',
+                    imageUrl: 'https://placehold.co/800x450/0b4c6b/white?text=ADComputersDeleter&font=montserrat'
                 },
                 {
-                    title: 'DataVisualizer',
-                    shortDesc: 'Interaktywna wizualizacja danych z CSV',
-                    language: 'Python',
-                    tags: ['Pandas', 'Plotly', 'Data Science'],
-                    icon: 'fa-chart-line',
-                    githubUrl: 'https://github.com/jandeveloper/DataVisualizer',
-                    fullDescription: 'Narzędzie CLI oraz webowy dashboard (Streamlit) do analizy plików CSV. Generuje zaawansowane wykresy (heatmapy, histogramy, wykresy punktowe) i raporty PDF. Wbudowane przetwarzanie brakujących danych i agregacje.',
-                    imageUrl: 'https://placehold.co/800x450/2c5f2d/white?text=DataVisualizer+Dashboard&font=montserrat'
+                    title: 'Set-RemoteAutoStartRemoteAutoStartRegistry',
+                    shortDesc: 'Dodawanie wpisów do rejestru autostart na komputerach zdalnych',
+                    language: 'PowerShell',
+                    tags: ['PowerShell', 'Remote', 'Registry'],
+                    icon: 'fa-plus-circle',
+                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRemoteAutoStartRegistry.ps1',
+                    fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru (Run) na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze dodaje wpis powodujący uruchomienie wskazanego programu przy starcie systemu.',
+                    imageUrl: 'https://placehold.co/800x450/306998/white?text=Set-RemoteAutoStartRemoteAutoStartRegistry&font=montserrat'
+                },
+                {
+                    title: 'Remove-RemoteAutoStartRegistry',
+                    shortDesc: 'Usuwanie wpisów w rejestrze dotyczących autostart-u na komputerach zdalnych',
+                    language: 'PowerShell',
+                    tags: ['PowerShell', 'Remote', 'Registry'],
+                    icon: 'fa-minus-circle',
+                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remove-RemoteAutoStartRegistry.ps1',
+                    fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze usuwa wskazany wpis.',
+                    imageUrl: 'https://placehold.co/800x450/2c5f2d/white?text=Remove-RemoteAutoStartRegistr&font=montserrat'
                 },
                 // Bash
                 {
-                    title: 'Dotfiles Commander',
-                    shortDesc: 'Zarządzanie plikami konfiguracyjnymi Linux',
-                    language: 'Bash',
-                    tags: ['Bash', 'Zsh', 'Dotfiles', 'Git'],
-                    icon: 'fa-terminal',
-                    githubUrl: 'https://github.com/jandeveloper/dotfiles-commander',
-                    fullDescription: 'Inteligentny skrypt Bash do zarządzania dotfiles (zsh, bash, vim, tmux). Tworzy kopie zapasowe, przywraca konfiguracje, synchronizuje z repozytorium i automatyzuje instalację niezbędnych pluginów. Zawiera funkcję "boostrap new machine".',
-                    imageUrl: 'https://placehold.co/800x450/4EAA25/white?text=Dotfiles+Commander+Bash&font=montserrat'
+                    title: 'DVDDetection',
+                    shortDesc: 'Skrypt sprawdza obecność napędu DVD, a następnie zapisuje wyniki w czasie rzeczywistym do pliku Excel',
+                    language: 'PowerShell',
+                    tags: ['PowerShell', 'Remote', 'WMI'],
+                    icon: 'fa-compact-disc',
+                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DVDDetection.ps1',
+                    fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie dla każdego dostępnego komputera sprawdza obecność napędu DVD. Plik Excel jest wypełniany w czasie rzeczywistym – wyniki pojawiają się na bieżąco w miarę skanowania kolejnych komputerów, co pozwala na monitorowanie postępu skanowania na żywo.',
+                    imageUrl: 'https://placehold.co/800x450/4EAA25/white?text=DVDDetection&font=montserrat'
                 },
                 {
                     title: 'ServerHealth Sentinel',
-                    shortDesc: 'Monitoring serwerów + alerty',
+                    shortDesc: 'test',
                     language: 'Bash',
                     tags: ['Bash', 'Cron', 'Telegram API', 'Prometheus Exporter'],
                     icon: 'fa-heartbeat',
