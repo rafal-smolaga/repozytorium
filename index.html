@@ -23,6 +23,151 @@
             padding: 32px 24px;
         }
 
+        /* Przycisk otwierający filtr (wysuwany z lewej) */
+        .filter-toggle {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #012456;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .filter-toggle:hover {
+            left: 24px;
+            background: #00337C;
+            transform: translateY(-50%) scale(1.02);
+        }
+
+        /* Wysuwany panel boczny */
+        .filter-sidebar {
+            position: fixed;
+            left: -340px;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            background: white;
+            z-index: 200;
+            transition: left 0.3s ease;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            padding: 24px 20px;
+        }
+        .filter-sidebar.open {
+            left: 0;
+        }
+
+        /* Overlay gdy panel otwarty */
+        .filter-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 150;
+            display: none;
+        }
+        .filter-overlay.active {
+            display: block;
+        }
+
+        /* Nagłówek panelu */
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .sidebar-header h3 {
+            font-size: 1.3rem;
+            color: #012456;
+        }
+        .close-filter {
+            background: #f1f5f9;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: 0.2s;
+        }
+        .close-filter:hover {
+            background: #012456;
+            color: white;
+        }
+
+        /* Grupy filtrów - dynamicznie generowane tagi */
+        .filter-group {
+            margin-bottom: 24px;
+        }
+        .filter-group h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #334155;
+            transition: 0.2s;
+        }
+        .filter-group label:hover {
+            color: #012456;
+        }
+        .filter-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #012456;
+        }
+        .filter-tags-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* Przyciski w panelu */
+        .apply-filters-btn {
+            width: 100%;
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+        .clear-filters-btn {
+            width: 100%;
+            background: none;
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #475569;
+        }
+        .clear-filters-btn:hover {
+            border-color: #012456;
+            color: #012456;
+            background: #f8fafc;
+        }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -144,7 +289,7 @@
             box-shadow: 0 8px 18px rgba(1,36,86,0.25);
         }
 
-        /* Filtry */
+        /* Filtry językowe (na górze) i sortowanie */
         .filter-section {
             display: flex;
             justify-content: space-between;
@@ -167,6 +312,33 @@
         .section-title i {
             color: #012456;
             font-size: 1.8rem;
+        }
+
+        .left-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Pojedynczy przycisk sortowania */
+        .sort-btn {
+            background: #f1f5f9;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sort-btn:hover {
+            background: #e2e8f0;
+            color: #012456;
         }
 
         .filter-tabs {
@@ -211,11 +383,10 @@
             margin: 20px 0 20px 0;
         }
 
+        /* Style dla typów projektów */
         .project-row {
-            background: #ffffff;
             border-radius: 1.25rem;
             padding: 20px 28px;
-            border: 1px solid #e9edf2;
             transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
             display: flex;
             align-items: center;
@@ -225,7 +396,24 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            border: 1px solid #e9edf2;
         }
+        
+        /* CLI - jasne tło */
+        .project-row.cli {
+            background: #ffffff;
+        }
+        
+        /* GUI - ciemniejsze tło */
+        .project-row.gui {
+            background: #eef2ff;
+        }
+        
+        /* Domyślne (gdy nie ma tagu CLI ani GUI) */
+        .project-row.default {
+            background: #ffffff;
+        }
+        
         .project-row::after {
             content: '';
             position: absolute;
@@ -243,6 +431,11 @@
             border-color: #cbd5e1;
             transform: translateY(-3px);
             box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+        .project-row.gui:hover {
+            background: #e2e8ff;
+        }
+        .project-row.cli:hover {
             background: #fefefe;
         }
 
@@ -252,6 +445,7 @@
             gap: 24px;
             flex: 2 1 280px;
             pointer-events: none;
+            min-width: 0;
         }
 
         .project-icon {
@@ -259,6 +453,7 @@
             background: #eef2ff;
             width: 56px;
             height: 56px;
+            min-width: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -270,9 +465,21 @@
             background: #012456;
             color: white;
         }
+        .project-row.gui .project-icon {
+            background: #d9e2ff;
+        }
+        .project-row.gui:hover .project-icon {
+            background: #012456;
+            color: white;
+        }
+
+        .project-details {
+            flex: 1;
+            min-width: 0;
+        }
 
         .project-details h3 {
-            font-size: 1.45rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 6px;
             color: #0f172a;
@@ -280,6 +487,7 @@
             flex-wrap: wrap;
             align-items: baseline;
             gap: 10px;
+            word-break: break-word;
         }
 
         .language-badge {
@@ -291,14 +499,39 @@
             text-transform: uppercase;
             letter-spacing: 0.4px;
             color: #012456;
+            white-space: nowrap;
+        }
+        .project-row.gui .language-badge {
+            background: #ffffff;
         }
 
         .project-meta {
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
             color: #475569;
             font-size: 0.85rem;
             font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .project-tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .project-tag {
+            background: #f1f5f9;
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1e6eb5;
+        }
+        .project-row.gui .project-tag {
+            background: #ffffff;
         }
 
         .project-actions {
@@ -331,6 +564,9 @@
             background: #00337C;
             transform: scale(1.02);
             box-shadow: 0 8px 16px rgba(1,36,86,0.2);
+        }
+        .project-row.gui .btn-primary {
+            background: #012456;
         }
 
         /* Modal - układ dwukolumnowy */
@@ -479,7 +715,7 @@
             h1 { font-size: 2.2rem; }
             .project-row { flex-direction: column; align-items: stretch; }
             .project-info { gap: 16px; }
-            .project-icon { width: 48px; height: 48px; font-size: 1.6rem; }
+            .project-icon { width: 48px; height: 48px; min-width: 48px; font-size: 1.6rem; }
             .filter-section { flex-direction: column; align-items: flex-start; }
             .modal-two-columns {
                 flex-direction: column;
@@ -488,310 +724,562 @@
             .modal-left, .modal-right {
                 width: 100%;
             }
+            .language-badge {
+                white-space: normal;
+            }
+            .filter-toggle {
+                width: 40px;
+                height: 40px;
+                left: 12px;
+            }
+            .filter-sidebar {
+                width: 280px;
+                left: -300px;
+            }
+            .left-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="inner">
-        <header>
-            <div class="avatar"><span>RS</span></div>
-            <h1>Rafał Smołaga</h1>
-            <div class="badge">
-                <i class="fas fa-terminal"></i> 
-                <span>PowerShell | Samouk z pasją – piszę skrypty, które rozwiązują konkretne problemy</span>
-            </div>
-            <p class="bio"><i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> Automatyzacja, wydajność i eleganckie rozwiązania. Kliknij w projekt i poznaj szczegóły.</p>
-            <div class="social-links">
-                <a href="#" target="_blank" title="LinkedIn" id="linkedinLink"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </header>
-
-        <section>
-            <div class="filter-section">
-                <div class="section-title">
-                    <i class="fas fa-rocket"></i> 
-                    <span>Projekty</span>
-                </div>
-                <div class="filter-tabs" id="filterContainer"></div>
-            </div>
-            <div class="projects-grid" id="projects-container"></div>
-        </section>
-
-        <footer>
-            <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga <i class="fas fa-microchip" style="color: #012456;"></i> automatyzacja</p>
-        </footer>
+    <!-- Przycisk otwierający filtr -->
+    <div class="filter-toggle" id="filterToggle">
+        <i class="fas fa-sliders-h"></i>
     </div>
-</div>
 
-<!-- Modal z układem dwukolumnowym -->
-<div class="modal-overlay" id="projectModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 id="modalTitle">Projekt</h2>
-            <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+    <!-- Wysuwany panel boczny z dynamicznymi filtrami tagów -->
+    <div class="filter-sidebar" id="filterSidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-tags"></i> Filtruj tagi</h3>
+            <button class="close-filter" id="closeFilterBtn"><i class="fas fa-times"></i></button>
         </div>
-        <div class="modal-body">
-            <div class="modal-two-columns">
-                <div class="modal-left">
-                    <img id="modalImage" src="" alt="Screenshot projektu" class="project-screenshot">
+        
+        <div class="filter-group">
+            <h4>Wybierz tagi</h4>
+            <div id="dynamicTagFilters" class="filter-tags-container">
+                <!-- Tagi będą generowane dynamicznie z JS -->
+            </div>
+        </div>
+        
+        <button id="applyFiltersBtn" class="btn btn-primary apply-filters-btn">Zastosuj filtry</button>
+        <button id="clearFiltersBtn" class="clear-filters-btn">Wyczyść wszystkie filtry</button>
+    </div>
+    
+    <div class="filter-overlay" id="filterOverlay"></div>
+
+    <div class="container">
+        <div class="inner">
+            <header>
+                <div class="avatar"><span>RS</span></div>
+                <h1>Rafał Smołaga</h1>
+                <div class="badge">
+                    <i class="fas fa-terminal"></i> 
+                    <span>PowerShell | Samouk z pasją – piszę skrypty, które rozwiązują konkretne problemy</span>
                 </div>
-                <div class="modal-right">
-                    <div id="modalDescription" class="project-full-description"></div>
-                    <div id="modalTags" class="modal-tags"></div>
-                    <div class="modal-footer">
-                        <a id="modalGithubBtn" href="#" target="_blank" class="btn btn-primary">
-                            <i class="fab fa-github"></i> Repozytorium
-                        </a>
+                <p class="bio"><i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank" title="LinkedIn" id="linkedinLink"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </header>
+
+            <section>
+                <div class="filter-section">
+                    <div class="left-controls">
+                        <div class="section-title">
+                            <i class="fas fa-rocket"></i> 
+                            <span>Projekty</span>
+                        </div>
+                        <!-- Pojedynczy przycisk sortowania -->
+                        <button id="sortBtn" class="sort-btn">
+                            <i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z
+                        </button>
+                    </div>
+                    <div class="filter-tabs" id="filterContainer"></div>
+                </div>
+                <div class="projects-grid" id="projects-container"></div>
+            </section>
+
+            <footer>
+                <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga <i class="fas fa-microchip" style="color: #012456;"></i> automatyzacja</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal z układem dwukolumnowym -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Projekt</h2>
+                <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-two-columns">
+                    <div class="modal-left">
+                        <img id="modalImage" src="" alt="Screenshot projektu" class="project-screenshot">
+                    </div>
+                    <div class="modal-right">
+                        <div id="modalDescription" class="project-full-description"></div>
+                        <div id="modalTags" class="modal-tags"></div>
+                        <div class="modal-footer">
+                            <a id="modalGithubBtn" href="#" target="_blank" class="btn btn-primary">
+                                <i class="fab fa-github"></i> Repozytorium
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    (function() {
-        // =============================================================
-        // DANE PROFILU I PROJEKTÓW
-        // =============================================================
-        const userData = {
-            name: 'Rafał Smołaga',
-            initials: 'RS',
-            bio: 'Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.',
-            linkedin: 'https://linkedin.com/in/rafal-smolaga',
-            projects: [
-                // PowerShell
-                {
-                    title: 'ADComputersRenamer',
-                    shortDesc: 'Zmiana nazw komputerów w domenie na podstawie pliku Excel',
-                    language: 'PowerShell',
-                    tags: ['PowerShell', 'AD', 'ImportExcel'],
-                    icon: 'fa-desktop',
-                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersRenamer.ps1',
-                    fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów, a następnie dla każdego komputera wykonuje zmianę nazwy i automatyczny restart. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do zmiany nazw musi należeć do grupy Domain Admins lub posiadać delegowane uprawnienia do modyfikacji obiektów komputerów w Active Directory.',
-			    	imageUrl: 'https://placehold.co/800x450/012456/white?text=ADComputersRenamer+&font=montserrat'
-                },
-                {
-                    title: 'ADComputersDeleter',
-                    shortDesc: 'Usuwanie komputerów z Active Directory na podstawie listy z pliku tekstowego',
-                    language: 'PowerShell',
-                    tags: ['PowerShell', 'AD', 'ImportExcel'],
-                    icon: 'fa-trash-alt',
-                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersDeleter.ps1',
-                    fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do usuwania komputerów musi posiadać uprawnienia do modyfikacji i usuwania obiektów w Active Directory.',
-                    imageUrl: 'https://placehold.co/800x450/0b4c6b/white?text=ADComputersDeleter&font=montserrat'
-                },
-                {
-                    title: 'Set-RemoteAutoStartRemoteAutoStartRegistry',
-                    shortDesc: 'Dodawanie wpisów do rejestru autostart na komputerach zdalnych',
-                    language: 'PowerShell',
-                    tags: ['PowerShell', 'Remote', 'Registry'],
-                    icon: 'fa-plus-circle',
-                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRemoteAutoStartRegistry.ps1',
-                    fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru (Run) na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze dodaje wpis powodujący uruchomienie wskazanego programu przy starcie systemu.',
-                    imageUrl: 'https://placehold.co/800x450/306998/white?text=Set-RemoteAutoStartRemoteAutoStartRegistry&font=montserrat'
-                },
-                {
-                    title: 'Remove-RemoteAutoStartRegistry',
-                    shortDesc: 'Usuwanie wpisów w rejestrze dotyczących autostart-u na komputerach zdalnych',
-                    language: 'PowerShell',
-                    tags: ['PowerShell', 'Remote', 'Registry'],
-                    icon: 'fa-minus-circle',
-                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remove-RemoteAutoStartRegistry.ps1',
-                    fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze usuwa wskazany wpis.',
-                    imageUrl: 'https://placehold.co/800x450/2c5f2d/white?text=Remove-RemoteAutoStartRegistr&font=montserrat'
-                },
-                // Bash
-                {
-                    title: 'DVDDetection',
-                    shortDesc: 'Skrypt sprawdza obecność napędu DVD, a następnie zapisuje wyniki w czasie rzeczywistym do pliku Excel',
-                    language: 'PowerShell',
-                    tags: ['PowerShell', 'Remote', 'WMI'],
-                    icon: 'fa-compact-disc',
-                    githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DVDDetection.ps1',
-                    fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie dla każdego dostępnego komputera sprawdza obecność napędu DVD. Plik Excel jest wypełniany w czasie rzeczywistym – wyniki pojawiają się na bieżąco w miarę skanowania kolejnych komputerów, co pozwala na monitorowanie postępu skanowania na żywo.',
-                    imageUrl: 'https://placehold.co/800x450/4EAA25/white?text=DVDDetection&font=montserrat'
-                },
-                {
-                    title: 'ServerHealth Sentinel',
-                    shortDesc: 'test',
-                    language: 'Bash',
-                    tags: ['Bash', 'Cron', 'Telegram API', 'Prometheus Exporter'],
-                    icon: 'fa-heartbeat',
-                    githubUrl: 'https://github.com/jandeveloper/ServerHealthSentinel',
-                    fullDescription: 'Lekki skrypt do monitorowania CPU, RAM, dysków, uptime oraz dostępności kluczowych usług (nginx, mysql). W przypadku przekroczenia progów wysyła powiadomienia do Slacka/Telegrama lub email. Może działać jako eksporter dla Prometheusa.',
-                    imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Server+Health+Monitor&font=montserrat'
+    <script>
+        (function() {
+            // =============================================================
+            // DANE PROFILU I PROJEKTÓW
+            // =============================================================
+            const userData = {
+                name: 'Rafał Smołaga',
+                initials: 'RS',
+                bio: 'Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.',
+                linkedin: 'https://linkedin.com/in/rafal-smolaga',
+                projects: [
+                    {
+                        title: 'AD-ComputersDeleter',
+                        shortDesc: 'Usuwanie komputerów z Active Directory na podstawie listy z pliku tekstowego',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'AD', 'CLI'],
+                        icon: 'fa-trash-alt',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersDeleter.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do usuwania komputerów musi posiadać uprawnienia do modyfikacji i usuwania obiektów w Active Directory.',
+                        imageUrl: 'https://placehold.co/800x450/0b4c6b/white?text=ADComputersDeleter&font=montserrat'
+                    },
+                    {
+                        title: 'AD-ComputersRenamer',
+                        shortDesc: 'Zmiana nazw komputerów w domenie na podstawie pliku Excel',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'AD', 'ImportExcel', 'CLI', 'Excel'],
+                        icon: 'fa-desktop',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersRenamer.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów, a następnie dla każdego komputera wykonuje zmianę nazwy i automatyczny restart. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do zmiany nazw musi należeć do grupy Domain Admins lub posiadać delegowane uprawnienia do modyfikacji obiektów komputerów w Active Directory.',
+                        imageUrl: 'https://placehold.co/800x450/012456/white?text=ADComputersRenamer+&font=montserrat'
+                    },
+                    {
+                        title: 'DVD-Detection',
+                        shortDesc: 'Skrypt sprawdza obecność napędu DVD, a następnie zapisuje wyniki w czasie rzeczywistym do pliku Excel',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
+                        icon: 'fa-compact-disc',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DVD-Detection.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie dla każdego dostępnego komputera sprawdza obecność napędu DVD. Plik Excel jest wypełniany w czasie rzeczywistym – wyniki pojawiają się na bieżąco w miarę skanowania kolejnych komputerów, co pozwala na monitorowanie postępu skanowania na żywo.',
+                        imageUrl: 'https://placehold.co/800x450/4EAA25/white?text=DVD-Detection&font=montserrat'
+                    },
+                    {
+                        title: 'Get-ComputerModel',
+                        shortDesc: 'Skrypt odczytuje listę nazw komputerów z pliku tekstowego i pobiera model komputera',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
+                        icon: 'fa-info-circle',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ComputerModel.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego pobierania modeli komputerów na podstawie listy nazw hostów. Odczytuje nazwy komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (jeden pakiet ping), a następnie dla dostępnych maszyn pobiera model komputera za pomocą klasy WMI Win32_ComputerSystem.',
+                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-ComputerModel&font=montserrat'
+                    },
+                    {
+                        title: 'Get-HDDSMARTStatus',
+                        shortDesc: 'Skrypt odczytuje listę komputerów i pobiera status SMART dysku twardego',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
+                        icon: 'fa-hdd',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-HDDSMARTStatus.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego sprawdzania statusu SMART (Self-Monitoring, Analysis and Reporting Technology) dysków twardych na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn pobiera status dysku za pomocą klasy WMI Win32_DiskDrive. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel. Status "OK" oznaczany jest kolorem zielonym, a "Fail" kolorem niebieskim.',
+                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-HDDSMARTStatus&font=montserrat'
+                    },
+                    {
+                        title: 'Get-MonitorConnectionType',
+                        shortDesc: 'Skanowanie monitorów i typów połączeń wideo na zdalnych komputerach',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
+                        icon: 'fa-tv',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-MonitorConnectionType.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie dla każdego dostępnego komputera pobiera informacje o podłączonych monitorach i typach złączy wideo (HDMI, DVI, DisplayPort itp.) Wyniki są zapisywane w czasie rzeczywistym do pliku Excel',
+                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-MonitorConnectionType&font=montserrat'
+                    },
+                    {
+                        title: 'Get-SerialNumberFromIP',
+                        shortDesc: 'Skrypt odczytuje listę adresów IP z pliku tekstowego, sprawdza dostępność, a następnie pobiera numer seryjny BIOS',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
+                        icon: 'fa-tags',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SerialNumberFromIP.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego pobierania numerów seryjnych komputerów na podstawie listy adresów IP. Odczytuje adresy IP z pliku tekstowego, sprawdza dostępność każdego komputera (dwa pakiety ping), a następnie dla dostępnych maszyn pobiera numer seryjny z BIOS/używając klasy WMI Win32_BIOS.',
+                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-SerialNumberFromIP&font=montserrat'
+                    },
+                    {
+                        title: 'Outlook 2013 Fix Tool',
+                        shortDesc: 'Narzędzie z interfejsem graficznym do zmiany ustawień ADAL w rejestrze oraz tworzenia zaplanowanych zadań dla użytkowników Outlook 2013',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
+                        icon: 'fa-wrench',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/tree/main/Skrypty/OutlookFix',
+                        showGithubBtn: true,
+                        fullDescription: 'Narzędzie z graficznym interfejsem użytkownika (GUI) służące do zdalnej naprawy problemów z uwierzytelnianiem w programie Outlook 2013. Skrypt zmienia klucz rejestru EnableADAL na 0 (wyłączenie nowoczesnego uwierzytelniania), zabija proces Outlooka, a następnie tworzy zaplanowane zadanie, które uruchamia skrypt naprawczy przy każdym logowaniu lub odblokowaniu sesji użytkownika.',
+                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Outlook+2013+Fix+Tool&font=montserrat'
+                    },
+                    {
+                        title: 'Remove-RemoteAutoStartRegistry',
+                        shortDesc: 'Usuwanie wpisów w rejestrze dotyczących autostart-u na komputerach zdalnych',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
+                        icon: 'fa-minus-circle',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remove-RemoteAutoStartRegistry.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze usuwa wskazany wpis.',
+                        imageUrl: 'https://placehold.co/800x450/2c5f2d/white?text=Remove-RemoteAutoStartRegistry&font=montserrat'
+                    },
+                    {
+                        title: 'Set-RemoteAutoStartRegistry',
+                        shortDesc: 'Dodawanie wpisów do rejestru autostart na komputerach zdalnych',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
+                        icon: 'fa-plus-circle',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRemoteAutoStartRegistry.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru (Run) na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze dodaje wpis powodujący uruchomienie wskazanego programu przy starcie systemu.',
+                        imageUrl: 'https://placehold.co/800x450/306998/white?text=Set-RemoteAutoStartRegistry&font=montserrat'
+                    }
+                ]
+            };
+
+            // Aktualizacja danych w DOM
+            document.querySelector('h1').textContent = userData.name;
+            document.querySelector('.avatar span').textContent = userData.initials;
+            document.querySelector('.bio').innerHTML = `<i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> ${userData.bio}`;
+            const linkedinA = document.getElementById('linkedinLink');
+            if(linkedinA) linkedinA.href = userData.linkedin;
+
+            // Elementy modala
+            const modalOverlay = document.getElementById('projectModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalImage = document.getElementById('modalImage');
+            const modalDesc = document.getElementById('modalDescription');
+            const modalTagsDiv = document.getElementById('modalTags');
+            const modalGithubBtn = document.getElementById('modalGithubBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+
+            function openModal(project) {
+                modalTitle.textContent = project.title;
+                modalDesc.innerHTML = project.fullDescription || 'Brak szczegółowego opisu, ale możesz sprawdzić repozytorium.';
+                
+                if(project.imageUrl) {
+                    modalImage.src = project.imageUrl;
+                    modalImage.style.display = 'block';
+                    modalImage.alt = `Screenshot ${project.title}`;
+                } else {
+                    modalImage.src = 'https://placehold.co/800x450/e2e8f0/64748b?text=Brak+zrzutu+ekranu';
+                    modalImage.style.display = 'block';
                 }
-            ]
-        };
-
-        // Aktualizacja danych w DOM
-        document.querySelector('h1').textContent = userData.name;
-        document.querySelector('.avatar span').textContent = userData.initials;
-        document.querySelector('.bio').innerHTML = `<i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> ${userData.bio}`;
-        const githubA = document.getElementById('githubLink');
-        const linkedinA = document.getElementById('linkedinLink');
-        if(githubA) githubA.href = userData.github;
-        if(linkedinA) linkedinA.href = userData.linkedin;
-
-        // Elementy modala
-        const modalOverlay = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalImage = document.getElementById('modalImage');
-        const modalDesc = document.getElementById('modalDescription');
-        const modalTagsDiv = document.getElementById('modalTags');
-        const modalGithubBtn = document.getElementById('modalGithubBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        function openModal(project) {
-            modalTitle.textContent = project.title;
-            modalDesc.innerHTML = project.fullDescription || 'Brak szczegółowego opisu, ale możesz sprawdzić repozytorium.';
-            
-            if(project.imageUrl) {
-                modalImage.src = project.imageUrl;
-                modalImage.style.display = 'block';
-                modalImage.alt = `Screenshot ${project.title}`;
-            } else {
-                modalImage.src = 'https://placehold.co/800x450/e2e8f0/64748b?text=Brak+zrzutu+ekranu';
-                modalImage.style.display = 'block';
-            }
-            
-            modalTagsDiv.innerHTML = '';
-            project.tags.forEach(tag => {
-                const tagSpan = document.createElement('span');
-                tagSpan.className = 'tag';
-                tagSpan.textContent = tag;
-                modalTagsDiv.appendChild(tagSpan);
-            });
-            
-            modalGithubBtn.href = project.githubUrl || '#';
-            modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        closeModalBtn.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
-
-        // Filtry i lista projektów
-        const languagesSet = [...new Set(userData.projects.map(p => p.language))];
-        const filterContainer = document.getElementById('filterContainer');
-        const projectsContainer = document.getElementById('projects-container');
-        let currentFilter = 'Wszystkie';
-
-        function renderProjects(filterLang) {
-            const filtered = filterLang === 'Wszystkie' ? userData.projects : userData.projects.filter(p => p.language === filterLang);
-            projectsContainer.innerHTML = '';
-            
-            if(filtered.length === 0) {
-                const emptyDiv = document.createElement('div');
-                emptyDiv.className = 'no-projects-message';
-                emptyDiv.innerHTML = `<i class="fas fa-filter"></i> Brak projektów w kategorii "${filterLang}". Spróbuj innego filtra.`;
-                projectsContainer.appendChild(emptyDiv);
-                return;
+                
+                modalTagsDiv.innerHTML = '';
+                project.tags.forEach(tag => {
+                    const tagSpan = document.createElement('span');
+                    tagSpan.className = 'tag';
+                    tagSpan.textContent = tag;
+                    modalTagsDiv.appendChild(tagSpan);
+                });
+                
+                if (project.showGithubBtn !== false && project.githubUrl) {
+                    modalGithubBtn.href = project.githubUrl;
+                    modalGithubBtn.style.display = 'inline-flex';
+                } else {
+                    modalGithubBtn.style.display = 'none';
+                }
+                
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
 
-            filtered.forEach(proj => {
-                const row = document.createElement('div');
-                row.className = 'project-row';
-                row.addEventListener('click', (e) => {
-                    if(e.target.closest('a')) return;
-                    openModal(proj);
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
+            document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+            // =============================================================
+            // LOGIKA FILTRÓW I SORTOWANIA
+            // =============================================================
+            
+            // Pobranie wszystkich unikalnych tagów z projektów
+            function getAllUniqueTags() {
+                const allTags = new Set();
+                userData.projects.forEach(project => {
+                    project.tags.forEach(tag => {
+                        allTags.add(tag);
+                    });
+                });
+                // Sortowanie tagów alfabetycznie
+                return Array.from(allTags).sort();
+            }
+
+            // Dynamiczne generowanie checkboxów filtrów
+            function renderDynamicTagFilters() {
+                const container = document.getElementById('dynamicTagFilters');
+                const allTags = getAllUniqueTags();
+                container.innerHTML = '';
+                
+                allTags.forEach(tag => {
+                    const label = document.createElement('label');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = tag;
+                    checkbox.className = 'tag-filter';
+                    label.appendChild(checkbox);
+                    label.appendChild(document.createTextNode(` ${tag}`));
+                    container.appendChild(label);
+                });
+            }
+
+            // Filtry językowe
+            const languagesSet = [...new Set(userData.projects.map(p => p.language))];
+            const filterContainer = document.getElementById('filterContainer');
+            const projectsContainer = document.getElementById('projects-container');
+            let currentLanguageFilter = 'Wszystkie';
+            let activeTagFilters = [];
+            let currentSortOrder = 'asc'; // 'asc' lub 'desc'
+
+            // Funkcja określająca typ projektu na podstawie tagów
+            function getProjectType(tags) {
+                if (tags.includes('GUI')) return 'gui';
+                if (tags.includes('CLI')) return 'cli';
+                return 'default';
+            }
+
+            // Sprawdza czy projekt przechodzi filtry tagów
+            function passesTagFilters(projectTags) {
+                if (activeTagFilters.length === 0) return true;
+                return activeTagFilters.some(filterTag => projectTags.includes(filterTag));
+            }
+
+            // Sortowanie projektów
+            function sortProjects(projects, order) {
+                return [...projects].sort((a, b) => {
+                    const titleA = a.title.toLowerCase();
+                    const titleB = b.title.toLowerCase();
+                    if (order === 'asc') {
+                        return titleA.localeCompare(titleB);
+                    } else {
+                        return titleB.localeCompare(titleA);
+                    }
+                });
+            }
+
+            function renderProjects() {
+                // Filtrowanie po języku
+                let filtered = currentLanguageFilter === 'Wszystkie' 
+                    ? [...userData.projects] 
+                    : userData.projects.filter(p => p.language === currentLanguageFilter);
+                
+                // Filtrowanie po tagach
+                filtered = filtered.filter(proj => passesTagFilters(proj.tags));
+                
+                // Sortowanie
+                filtered = sortProjects(filtered, currentSortOrder);
+                
+                projectsContainer.innerHTML = '';
+                
+                if(filtered.length === 0) {
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.className = 'no-projects-message';
+                    emptyDiv.innerHTML = `<i class="fas fa-filter"></i> Brak projektów spełniających kryteria. Spróbuj zmienić filtry.`;
+                    projectsContainer.appendChild(emptyDiv);
+                    return;
+                }
+
+                filtered.forEach(proj => {
+                    const row = document.createElement('div');
+                    const projectType = getProjectType(proj.tags);
+                    row.className = `project-row ${projectType}`;
+                    row.addEventListener('click', (e) => {
+                        if(e.target.closest('a')) return;
+                        openModal(proj);
+                    });
+
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'project-info';
+                    const iconSpan = document.createElement('div');
+                    iconSpan.className = 'project-icon';
+                    iconSpan.innerHTML = `<i class="fas ${proj.icon || 'fa-code'}"></i>`;
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.className = 'project-details';
+                    
+                    const tagsHtml = proj.tags && proj.tags.length > 0 
+                        ? `<div class="project-tags-list">${proj.tags.map(tag => `<span class="project-tag">${escapeHtml(tag)}</span>`).join('')}</div>`
+                        : '';
+                    
+                    detailsDiv.innerHTML = `
+                        <h3>${escapeHtml(proj.title)} <span class="language-badge">${escapeHtml(proj.language)}</span></h3>
+                        <div class="project-meta"><span><i class="far fa-file-alt"></i> ${escapeHtml(proj.shortDesc)}</span></div>
+                        ${tagsHtml}
+                    `;
+                    infoDiv.appendChild(iconSpan);
+                    infoDiv.appendChild(detailsDiv);
+
+                    const actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'project-actions';
+                    
+                    if (proj.showGithubBtn !== false && proj.githubUrl) {
+                        const ghButton = document.createElement('a');
+                        ghButton.href = proj.githubUrl;
+                        ghButton.target = '_blank';
+                        ghButton.rel = 'noopener noreferrer';
+                        ghButton.className = 'btn btn-primary';
+                        ghButton.innerHTML = '<i class="fab fa-github"></i> GitHub';
+                        ghButton.addEventListener('click', (e) => e.stopPropagation());
+                        actionsDiv.appendChild(ghButton);
+                    }
+                    
+                    row.appendChild(infoDiv);
+                    row.appendChild(actionsDiv);
+                    projectsContainer.appendChild(row);
+                });
+            }
+
+            function escapeHtml(str) { 
+                return str.replace(/[&<>]/g, function(m){
+                    if(m==='&') return '&amp;';
+                    if(m==='<') return '&lt;';
+                    if(m==='>') return '&gt;';
+                    return m;
+                }); 
+            }
+
+            function renderLanguageFilters() {
+                filterContainer.innerHTML = '';
+                
+                const allBtn = document.createElement('button');
+                allBtn.innerHTML = '<i class="fas fa-layer-group"></i> Wszystkie';
+                allBtn.className = 'filter-btn active';
+                allBtn.dataset.filter = 'Wszystkie';
+                filterContainer.appendChild(allBtn);
+
+                languagesSet.forEach(lang => {
+                    const btn = document.createElement('button');
+                    let iconHtml = '';
+                    switch(lang) {
+                        case 'PowerShell':
+                            iconHtml = '<i class="fas fa-terminal"></i> ';
+                            break;
+                        case 'Python':
+                            iconHtml = '<i class="fab fa-python"></i> ';
+                            break;
+                        case 'Bash':
+                            iconHtml = '<i class="fas fa-code"></i> ';
+                            break;
+                        default:
+                            iconHtml = '<i class="fas fa-code-branch"></i> ';
+                    }
+                    btn.innerHTML = iconHtml + lang;
+                    btn.className = 'filter-btn';
+                    btn.dataset.filter = lang;
+                    filterContainer.appendChild(btn);
                 });
 
-                const infoDiv = document.createElement('div');
-                infoDiv.className = 'project-info';
-                const iconSpan = document.createElement('div');
-                iconSpan.className = 'project-icon';
-                iconSpan.innerHTML = `<i class="fas ${proj.icon || 'fa-code'}"></i>`;
-                const detailsDiv = document.createElement('div');
-                detailsDiv.className = 'project-details';
-                detailsDiv.innerHTML = `
-                    <h3>${escapeHtml(proj.title)} <span class="language-badge">${escapeHtml(proj.language)}</span></h3>
-                    <div class="project-meta"><span><i class="far fa-file-alt"></i> ${escapeHtml(proj.shortDesc)}</span></div>
-                `;
-                infoDiv.appendChild(iconSpan);
-                infoDiv.appendChild(detailsDiv);
-
-                const actionsDiv = document.createElement('div');
-                actionsDiv.className = 'project-actions';
-                const ghButton = document.createElement('a');
-                ghButton.href = proj.githubUrl || '#';
-                ghButton.target = '_blank';
-                ghButton.rel = 'noopener noreferrer';
-                ghButton.className = 'btn btn-primary';
-                ghButton.innerHTML = '<i class="fab fa-github"></i> GitHub';
-                ghButton.addEventListener('click', (e) => e.stopPropagation());
-                actionsDiv.appendChild(ghButton);
-                row.appendChild(infoDiv);
-                row.appendChild(actionsDiv);
-                projectsContainer.appendChild(row);
-            });
-        }
-
-        function escapeHtml(str) { 
-            return str.replace(/[&<>]/g, function(m){
-                if(m==='&') return '&amp;';
-                if(m==='<') return '&lt;';
-                if(m==='>') return '&gt;';
-                return m;
-            }); 
-        }
-
-        function renderFilters() {
-            filterContainer.innerHTML = '';
-            
-            // Przycisk "Wszystkie" z ikoną
-            const allBtn = document.createElement('button');
-            allBtn.innerHTML = '<i class="fas fa-layer-group"></i> Wszystkie';
-            allBtn.className = 'filter-btn active';
-            allBtn.dataset.filter = 'Wszystkie';
-            filterContainer.appendChild(allBtn);
-
-            // Przyciski dla języków z ikonami
-            languagesSet.forEach(lang => {
-                const btn = document.createElement('button');
-                let iconHtml = '';
-                switch(lang) {
-                    case 'PowerShell':
-                        iconHtml = '<i class="fas fa-terminal"></i> ';
-                        break;
-                    case 'Python':
-                        iconHtml = '<i class="fab fa-python"></i> ';
-                        break;
-                    case 'Bash':
-                        iconHtml = '<i class="fas fa-code"></i> ';
-                        break;
-                    default:
-                        iconHtml = '<i class="fas fa-code-branch"></i> ';
-                }
-                btn.innerHTML = iconHtml + lang;
-                btn.className = 'filter-btn';
-                btn.dataset.filter = lang;
-                filterContainer.appendChild(btn);
-            });
-
-            // Obsługa kliknięć
-            filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    renderProjects(currentFilter);
+                filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentLanguageFilter = btn.dataset.filter;
+                        renderProjects();
+                    });
                 });
-            });
-        }
+            }
 
-        renderFilters();
-        renderProjects('Wszystkie');
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    })();
-</script>
+            // Obsługa sortowania - jeden przycisk zmieniający się
+            const sortBtn = document.getElementById('sortBtn');
+            
+            function updateSortButton() {
+                if (currentSortOrder === 'asc') {
+                    sortBtn.innerHTML = '<i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z';
+                } else {
+                    sortBtn.innerHTML = '<i class="fas fa-arrow-down-z-a"></i> Sortuj Z-A';
+                }
+            }
+
+            sortBtn.addEventListener('click', () => {
+                // Zmiana kolejności sortowania
+                currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
+                updateSortButton();
+                renderProjects();
+            });
+
+            // Obsługa panelu bocznego
+            const filterToggle = document.getElementById('filterToggle');
+            const filterSidebar = document.getElementById('filterSidebar');
+            const filterOverlay = document.getElementById('filterOverlay');
+            const closeFilterBtn = document.getElementById('closeFilterBtn');
+            const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+            const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+
+            function openSidebar() {
+                filterSidebar.classList.add('open');
+                filterOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeSidebar() {
+                filterSidebar.classList.remove('open');
+                filterOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            filterToggle.addEventListener('click', openSidebar);
+            closeFilterBtn.addEventListener('click', closeSidebar);
+            filterOverlay.addEventListener('click', closeSidebar);
+
+            // Zbieranie zaznaczonych filtrów tagów
+            function getSelectedTagFilters() {
+                const checkboxes = document.querySelectorAll('.tag-filter');
+                const selected = [];
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        selected.push(cb.value);
+                    }
+                });
+                return selected;
+            }
+
+            // Zastosowanie filtrów
+            applyFiltersBtn.addEventListener('click', () => {
+                activeTagFilters = getSelectedTagFilters();
+                renderProjects();
+                closeSidebar();
+            });
+
+            // Wyczyszczenie filtrów
+            clearFiltersBtn.addEventListener('click', () => {
+                const checkboxes = document.querySelectorAll('.tag-filter');
+                checkboxes.forEach(cb => cb.checked = false);
+                activeTagFilters = [];
+                renderProjects();
+                closeSidebar();
+            });
+
+            // Inicjalizacja
+            renderDynamicTagFilters();
+            renderLanguageFilters();
+            renderProjects();
+            updateSortButton();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 </html>
