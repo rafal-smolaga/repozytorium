@@ -109,7 +109,6 @@
             color: white;
         }
 
-        /* Grupy filtrów - dynamicznie generowane tagi */
         .filter-group {
             margin-bottom: 24px;
         }
@@ -145,7 +144,6 @@
             gap: 4px;
         }
 
-        /* Przyciski w panelu */
         .apply-filters-btn {
             width: 100%;
             margin-top: 16px;
@@ -178,7 +176,6 @@
             position: relative;
         }
 
-        /* Gradient border na górze */
         .container::before {
             content: '';
             position: absolute;
@@ -199,7 +196,6 @@
             padding: 2rem 2rem 2rem 2rem;
         }
 
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -289,7 +285,6 @@
             box-shadow: 0 8px 18px rgba(1,36,86,0.25);
         }
 
-        /* Filtry językowe (na górze) i sortowanie */
         .filter-section {
             display: flex;
             justify-content: space-between;
@@ -321,7 +316,6 @@
             flex-wrap: wrap;
         }
 
-        /* Pojedynczy przycisk sortowania */
         .sort-btn {
             background: #f1f5f9;
             border: none;
@@ -375,7 +369,6 @@
             color: white;
         }
 
-        /* Kafelki projektów */
         .projects-grid {
             display: flex;
             flex-direction: column;
@@ -383,7 +376,6 @@
             margin: 20px 0 20px 0;
         }
 
-        /* Style dla typów projektów */
         .project-row {
             border-radius: 1.25rem;
             padding: 20px 28px;
@@ -399,17 +391,12 @@
             border: 1px solid #e9edf2;
         }
         
-        /* CLI - jasne tło */
         .project-row.cli {
             background: #ffffff;
         }
-        
-        /* GUI - ciemniejsze tło */
         .project-row.gui {
             background: #eef2ff;
         }
-        
-        /* Domyślne (gdy nie ma tagu CLI ani GUI) */
         .project-row.default {
             background: #ffffff;
         }
@@ -460,6 +447,7 @@
             border-radius: 20px;
             color: #012456;
             transition: 0.2s;
+            flex-shrink: 0;
         }
         .project-row:hover .project-icon {
             background: #012456;
@@ -488,6 +476,14 @@
             align-items: baseline;
             gap: 10px;
             word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Długie nazwy - przycinanie z tooltipem */
+        .project-title {
+            word-break: break-all;
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
 
         .language-badge {
@@ -500,6 +496,7 @@
             letter-spacing: 0.4px;
             color: #012456;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .project-row.gui .language-badge {
             background: #ffffff;
@@ -513,6 +510,7 @@
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 8px;
+            word-break: break-word;
         }
 
         .project-tags-list {
@@ -529,6 +527,7 @@
             font-size: 0.7rem;
             font-weight: 500;
             color: #1e6eb5;
+            white-space: nowrap;
         }
         .project-row.gui .project-tag {
             background: #ffffff;
@@ -536,6 +535,7 @@
 
         .project-actions {
             pointer-events: auto;
+            flex-shrink: 0;
         }
 
         .btn {
@@ -565,11 +565,8 @@
             transform: scale(1.02);
             box-shadow: 0 8px 16px rgba(1,36,86,0.2);
         }
-        .project-row.gui .btn-primary {
-            background: #012456;
-        }
 
-        /* Modal - układ dwukolumnowy */
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -618,6 +615,7 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            word-break: break-word;
         }
         .modal-close {
             background: #f1f5f9;
@@ -632,6 +630,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         .modal-close:hover {
             background: #012456;
@@ -645,14 +644,15 @@
             display: flex;
             gap: 32px;
             align-items: flex-start;
+            flex-wrap: wrap;
         }
         .modal-left {
             flex: 1;
-            min-width: 0;
+            min-width: 200px;
         }
         .modal-right {
             flex: 1;
-            min-width: 0;
+            min-width: 200px;
         }
         .project-screenshot {
             width: 100%;
@@ -668,6 +668,7 @@
             line-height: 1.65;
             font-size: 1rem;
             margin-bottom: 24px;
+            word-break: break-word;
         }
         .modal-tags {
             display: flex;
@@ -688,9 +689,9 @@
             padding-top: 24px;
             display: flex;
             gap: 16px;
+            flex-wrap: wrap;
         }
 
-        /* No projects */
         .no-projects-message {
             text-align: center;
             padding: 48px;
@@ -707,6 +708,12 @@
             color: #5b6e8c;
             font-size: 0.85rem;
             border-top: 1px solid #e9edf2;
+        }
+
+        /* Tooltip dla długich nazw */
+        .project-title-with-tooltip {
+            cursor: help;
+            border-bottom: 1px dotted #999;
         }
 
         @media (max-width: 768px) {
@@ -740,29 +747,43 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+            .project-tag {
+                white-space: normal;
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-details h3 {
+                font-size: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .language-badge {
+                white-space: normal;
+                font-size: 0.6rem;
+            }
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Przycisk otwierający filtr -->
     <div class="filter-toggle" id="filterToggle">
         <i class="fas fa-sliders-h"></i>
     </div>
 
-    <!-- Wysuwany panel boczny z dynamicznymi filtrami tagów -->
     <div class="filter-sidebar" id="filterSidebar">
         <div class="sidebar-header">
             <h3><i class="fas fa-tags"></i> Filtruj tagi</h3>
             <button class="close-filter" id="closeFilterBtn"><i class="fas fa-times"></i></button>
         </div>
-        
         <div class="filter-group">
             <h4>Wybierz tagi</h4>
-            <div id="dynamicTagFilters" class="filter-tags-container">
-                <!-- Tagi będą generowane dynamicznie z JS -->
-            </div>
+            <div id="dynamicTagFilters" class="filter-tags-container"></div>
         </div>
-        
         <button id="applyFiltersBtn" class="btn btn-primary apply-filters-btn">Zastosuj filtry</button>
         <button id="clearFiltersBtn" class="clear-filters-btn">Wyczyść wszystkie filtry</button>
     </div>
@@ -791,7 +812,6 @@
                             <i class="fas fa-rocket"></i> 
                             <span>Projekty</span>
                         </div>
-                        <!-- Pojedynczy przycisk sortowania -->
                         <button id="sortBtn" class="sort-btn">
                             <i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z
                         </button>
@@ -802,12 +822,11 @@
             </section>
 
             <footer>
-                <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga <i class="fas fa-microchip" style="color: #012456;"></i> automatyzacja</p>
+                <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga </i></p>
             </footer>
         </div>
     </div>
 
-    <!-- Modal z układem dwukolumnowym -->
     <div class="modal-overlay" id="projectModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -836,6 +855,77 @@
     <script>
         (function() {
             // =============================================================
+            // FUNKCJA GENERUJĄCA OBRAZEK Z TEKSTEM (Canvas)
+            // =============================================================
+            function generateTextImage(text, bgColor = '#012456', textColor = '#ffffff', width = 800, height = 450) {
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                
+                ctx.fillStyle = bgColor;
+                ctx.fillRect(0, 0, width, height);
+                
+                // Delikatny wzór
+                ctx.fillStyle = textColor + '20';
+                for (let i = 0; i < 100; i++) {
+                    ctx.beginPath();
+                    ctx.arc(Math.random() * width, Math.random() * height, Math.random() * 3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                ctx.fillStyle = textColor;
+                const maxFontSize = Math.floor(width / 12);
+                let fontSize = maxFontSize;
+                ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`;
+                
+                // Sprawdzanie czy tekst się mieści
+                let textWidth = ctx.measureText(text).width;
+                while (textWidth > width - 60 && fontSize > 20) {
+                    fontSize -= 2;
+                    ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`;
+                    textWidth = ctx.measureText(text).width;
+                }
+                
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Podział długiego tekstu na linie
+                const words = text.split(' ');
+                let lines = [];
+                let currentLine = '';
+                
+                for (let i = 0; i < words.length; i++) {
+                    const testLine = currentLine + (currentLine ? ' ' : '') + words[i];
+                    ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`;
+                    const testWidth = ctx.measureText(testLine).width;
+                    if (testWidth > width - 60 && currentLine.length > 0) {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    } else {
+                        currentLine = testLine;
+                    }
+                }
+                if (currentLine) lines.push(currentLine);
+                
+                if (lines.length === 0) lines = [text];
+                
+                const lineHeight = fontSize * 1.3;
+                const totalHeight = lines.length * lineHeight;
+                const startY = height / 2 - totalHeight / 2;
+                
+                for (let i = 0; i < lines.length; i++) {
+                    ctx.fillText(lines[i], width / 2, startY + i * lineHeight);
+                }
+                
+                ctx.font = `12px 'Inter', monospace`;
+                ctx.fillStyle = textColor + 'aa';
+                ctx.fillText('Rafał Smołaga Portfolio', width / 2, height - 25);
+                
+                return canvas.toDataURL('image/png');
+            }
+
+            // =============================================================
             // DANE PROFILU I PROJEKTÓW
             // =============================================================
             const userData = {
@@ -852,8 +942,9 @@
                         icon: 'fa-trash-alt',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersDeleter.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do usuwania komputerów musi posiadać uprawnienia do modyfikacji i usuwania obiektów w Active Directory.',
-                        imageUrl: 'https://placehold.co/800x450/0b4c6b/white?text=ADComputersDeleter&font=montserrat'
+                        fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny.',
+                        imageUrl: null,
+                        imageBgColor: '#0b4c6b'
                     },
                     {
                         title: 'AD-ComputersRenamer',
@@ -863,8 +954,9 @@
                         icon: 'fa-desktop',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersRenamer.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów, a następnie dla każdego komputera wykonuje zmianę nazwy i automatyczny restart. Do poprawnego działania skryptu konieczne jest posiadanie uprawnień administratora w domenie – konto używane do zmiany nazw musi należeć do grupy Domain Admins lub posiadać delegowane uprawnienia do modyfikacji obiektów komputerów w Active Directory.',
-                        imageUrl: 'https://placehold.co/800x450/012456/white?text=ADComputersRenamer+&font=montserrat'
+                        fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów.',
+                        imageUrl: null,
+                        imageBgColor: '#012456'
                     },
                     {
                         title: 'DVD-Detection',
@@ -874,8 +966,9 @@
                         icon: 'fa-compact-disc',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DVD-Detection.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie dla każdego dostępnego komputera sprawdza obecność napędu DVD. Plik Excel jest wypełniany w czasie rzeczywistym – wyniki pojawiają się na bieżąco w miarę skanowania kolejnych komputerów, co pozwala na monitorowanie postępu skanowania na żywo.',
-                        imageUrl: 'https://placehold.co/800x450/4EAA25/white?text=DVD-Detection&font=montserrat'
+                        fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel.',
+                        imageUrl: null,
+                        imageBgColor: '#4EAA25'
                     },
                     {
                         title: 'Get-ComputerModel',
@@ -885,8 +978,9 @@
                         icon: 'fa-info-circle',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ComputerModel.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego pobierania modeli komputerów na podstawie listy nazw hostów. Odczytuje nazwy komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (jeden pakiet ping), a następnie dla dostępnych maszyn pobiera model komputera za pomocą klasy WMI Win32_ComputerSystem.',
-                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-ComputerModel&font=montserrat'
+                        fullDescription: 'Skrypt służy do masowego pobierania modeli komputerów na podstawie listy nazw hostów.',
+                        imageUrl: null,
+                        imageBgColor: '#2b5e3b'
                     },
                     {
                         title: 'Get-HDDSMARTStatus',
@@ -896,8 +990,9 @@
                         icon: 'fa-hdd',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-HDDSMARTStatus.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego sprawdzania statusu SMART (Self-Monitoring, Analysis and Reporting Technology) dysków twardych na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn pobiera status dysku za pomocą klasy WMI Win32_DiskDrive. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel. Status "OK" oznaczany jest kolorem zielonym, a "Fail" kolorem niebieskim.',
-                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-HDDSMARTStatus&font=montserrat'
+                        fullDescription: 'Skrypt służy do masowego sprawdzania statusu SMART dysków twardych na zdalnych komputerach.',
+                        imageUrl: null,
+                        imageBgColor: '#2b5e3b'
                     },
                     {
                         title: 'Get-MonitorConnectionType',
@@ -907,30 +1002,33 @@
                         icon: 'fa-tv',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-MonitorConnectionType.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie dla każdego dostępnego komputera pobiera informacje o podłączonych monitorach i typach złączy wideo (HDMI, DVI, DisplayPort itp.) Wyniki są zapisywane w czasie rzeczywistym do pliku Excel',
-                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-MonitorConnectionType&font=montserrat'
+                        fullDescription: 'Skrypt odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność, a następnie pobiera informacje o podłączonych monitorach.',
+                        imageUrl: null,
+                        imageBgColor: '#2b5e3b'
                     },
                     {
                         title: 'Get-SerialNumberFromIP',
-                        shortDesc: 'Skrypt odczytuje listę adresów IP z pliku tekstowego, sprawdza dostępność, a następnie pobiera numer seryjny BIOS',
+                        shortDesc: 'Skrypt odczytuje listę adresów IP i pobiera numer seryjny BIOS',
                         language: 'PowerShell',
                         tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
                         icon: 'fa-tags',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SerialNumberFromIP.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego pobierania numerów seryjnych komputerów na podstawie listy adresów IP. Odczytuje adresy IP z pliku tekstowego, sprawdza dostępność każdego komputera (dwa pakiety ping), a następnie dla dostępnych maszyn pobiera numer seryjny z BIOS/używając klasy WMI Win32_BIOS.',
-                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Get-SerialNumberFromIP&font=montserrat'
+                        fullDescription: 'Skrypt służy do masowego pobierania numerów seryjnych komputerów na podstawie listy adresów IP.',
+                        imageUrl: null,
+                        imageBgColor: '#2b5e3b'
                     },
                     {
                         title: 'Outlook 2013 Fix Tool',
-                        shortDesc: 'Narzędzie z interfejsem graficznym do zmiany ustawień ADAL w rejestrze oraz tworzenia zaplanowanych zadań dla użytkowników Outlook 2013',
+                        shortDesc: 'Narzędzie z interfejsem graficznym do zmiany ustawień ADAL w rejestrze',
                         language: 'PowerShell',
                         tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
                         icon: 'fa-wrench',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/tree/main/Skrypty/OutlookFix',
                         showGithubBtn: true,
-                        fullDescription: 'Narzędzie z graficznym interfejsem użytkownika (GUI) służące do zdalnej naprawy problemów z uwierzytelnianiem w programie Outlook 2013. Skrypt zmienia klucz rejestru EnableADAL na 0 (wyłączenie nowoczesnego uwierzytelniania), zabija proces Outlooka, a następnie tworzy zaplanowane zadanie, które uruchamia skrypt naprawczy przy każdym logowaniu lub odblokowaniu sesji użytkownika.',
-                        imageUrl: 'https://placehold.co/800x450/2b5e3b/white?text=Outlook+2013+Fix+Tool&font=montserrat'
+                        fullDescription: 'Narzędzie z graficznym interfejsem użytkownika (GUI) służące do zdalnej naprawy problemów z uwierzytelnianiem w programie Outlook 2013.',
+                        imageUrl: null,
+                        imageBgColor: '#2b5e3b'
                     },
                     {
                         title: 'Remove-RemoteAutoStartRegistry',
@@ -940,8 +1038,9 @@
                         icon: 'fa-minus-circle',
                         githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remove-RemoteAutoStartRegistry.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze usuwa wskazany wpis.',
-                        imageUrl: 'https://placehold.co/800x450/2c5f2d/white?text=Remove-RemoteAutoStartRegistry&font=montserrat'
+                        fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci.',
+                        imageUrl: null,
+                        imageBgColor: '#2c5f2d'
                     },
                     {
                         title: 'Set-RemoteAutoStartRegistry',
@@ -949,13 +1048,58 @@
                         language: 'PowerShell',
                         tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
                         icon: 'fa-plus-circle',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRemoteAutoStartRegistry.ps1',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRegistry.ps1',
                         showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru (Run) na zdalnych komputerach w sieci. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność za pomocą pinga, a następnie na każdym dostępnym komputerze dodaje wpis powodujący uruchomienie wskazanego programu przy starcie systemu.',
-                        imageUrl: 'https://placehold.co/800x450/306998/white?text=Set-RemoteAutoStartRegistry&font=montserrat'
-                    }
+                        fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru na zdalnych komputerach w sieci.',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Get-InstalledSoftware',
+                        shortDesc: 'Inwentaryzacja zainstalowanego oprogramowania na zdalnych komputerach',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI','Excel'],
+                        icon: 'fa-th-list',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-InstalledSoftware.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do inwentaryzacji zainstalowanego oprogramowania na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn odczytuje z rejestru listę wszystkich zainstalowanych programów (zarówno 32-bitowych jak i 64-bitowych). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel, z podziałem na architekturę (x32/x64).',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Get-OSVersion',
+                        shortDesc: 'Pobieranie wersji systemu operacyjnego ze zdalnych komputerów',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI','Excel'],
+                        icon: 'fa-microchip',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego pobierania wersji systemu operacyjnego ze zdalnych komputerów. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn odczytuje z rejestru klucz ReleaseId zawierający wersję systemu Windows (np. 21H2, 22H2).',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Get-SCCMRemoteControlStatus',
+                        shortDesc: 'Sprawdzanie konfiguracji SCCM Remote Control na zdalnych komputerach',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI','Excel'],
+                        icon: 'fa-eye',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SCCMRemoteControlStatus.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do sprawdzania konfiguracji SCCM Remote Control na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn sprawdza w rejestrze czy zainstalowany jest komponent SCCM Remote Control oraz jaka jest wartość Permission Required (czy wymagane jest pozwolenie na zdalną kontrolę).',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    }					
                 ]
             };
+
+            // Generowanie obrazków dla projektów (jeśli imageUrl jest null)
+            userData.projects.forEach(project => {
+                if (!project.imageUrl) {
+                    const bgColor = project.imageBgColor || '#012456';
+                    project.imageUrl = generateTextImage(project.title, bgColor, '#ffffff', 800, 450);
+                }
+            });
 
             // Aktualizacja danych w DOM
             document.querySelector('h1').textContent = userData.name;
@@ -975,15 +1119,14 @@
 
             function openModal(project) {
                 modalTitle.textContent = project.title;
-                modalDesc.innerHTML = project.fullDescription || 'Brak szczegółowego opisu, ale możesz sprawdzić repozytorium.';
+                modalDesc.innerHTML = project.fullDescription || 'Brak szczegółowego opisu.';
                 
                 if(project.imageUrl) {
                     modalImage.src = project.imageUrl;
                     modalImage.style.display = 'block';
                     modalImage.alt = `Screenshot ${project.title}`;
                 } else {
-                    modalImage.src = 'https://placehold.co/800x450/e2e8f0/64748b?text=Brak+zrzutu+ekranu';
-                    modalImage.style.display = 'block';
+                    modalImage.style.display = 'none';
                 }
                 
                 modalTagsDiv.innerHTML = '';
@@ -1018,7 +1161,6 @@
             // LOGIKA FILTRÓW I SORTOWANIA
             // =============================================================
             
-            // Pobranie wszystkich unikalnych tagów z projektów
             function getAllUniqueTags() {
                 const allTags = new Set();
                 userData.projects.forEach(project => {
@@ -1026,11 +1168,9 @@
                         allTags.add(tag);
                     });
                 });
-                // Sortowanie tagów alfabetycznie
                 return Array.from(allTags).sort();
             }
 
-            // Dynamiczne generowanie checkboxów filtrów
             function renderDynamicTagFilters() {
                 const container = document.getElementById('dynamicTagFilters');
                 const allTags = getAllUniqueTags();
@@ -1048,28 +1188,24 @@
                 });
             }
 
-            // Filtry językowe
             const languagesSet = [...new Set(userData.projects.map(p => p.language))];
             const filterContainer = document.getElementById('filterContainer');
             const projectsContainer = document.getElementById('projects-container');
             let currentLanguageFilter = 'Wszystkie';
             let activeTagFilters = [];
-            let currentSortOrder = 'asc'; // 'asc' lub 'desc'
+            let currentSortOrder = 'asc';
 
-            // Funkcja określająca typ projektu na podstawie tagów
             function getProjectType(tags) {
                 if (tags.includes('GUI')) return 'gui';
                 if (tags.includes('CLI')) return 'cli';
                 return 'default';
             }
 
-            // Sprawdza czy projekt przechodzi filtry tagów
             function passesTagFilters(projectTags) {
                 if (activeTagFilters.length === 0) return true;
                 return activeTagFilters.some(filterTag => projectTags.includes(filterTag));
             }
 
-            // Sortowanie projektów
             function sortProjects(projects, order) {
                 return [...projects].sort((a, b) => {
                     const titleA = a.title.toLowerCase();
@@ -1082,16 +1218,20 @@
                 });
             }
 
+            // Funkcja formatująca tytuł z tooltipem dla długich nazw
+            function formatTitle(title) {
+                if (title.length > 35) {
+                    return `<span class="project-title" title="${escapeHtml(title)}">${escapeHtml(title.substring(0, 32))}...</span>`;
+                }
+                return `<span class="project-title">${escapeHtml(title)}</span>`;
+            }
+
             function renderProjects() {
-                // Filtrowanie po języku
                 let filtered = currentLanguageFilter === 'Wszystkie' 
                     ? [...userData.projects] 
                     : userData.projects.filter(p => p.language === currentLanguageFilter);
                 
-                // Filtrowanie po tagach
                 filtered = filtered.filter(proj => passesTagFilters(proj.tags));
-                
-                // Sortowanie
                 filtered = sortProjects(filtered, currentSortOrder);
                 
                 projectsContainer.innerHTML = '';
@@ -1099,7 +1239,7 @@
                 if(filtered.length === 0) {
                     const emptyDiv = document.createElement('div');
                     emptyDiv.className = 'no-projects-message';
-                    emptyDiv.innerHTML = `<i class="fas fa-filter"></i> Brak projektów spełniających kryteria. Spróbuj zmienić filtry.`;
+                    emptyDiv.innerHTML = `<i class="fas fa-filter"></i> Brak projektów spełniających kryteria.`;
                     projectsContainer.appendChild(emptyDiv);
                     return;
                 }
@@ -1126,7 +1266,7 @@
                         : '';
                     
                     detailsDiv.innerHTML = `
-                        <h3>${escapeHtml(proj.title)} <span class="language-badge">${escapeHtml(proj.language)}</span></h3>
+                        <h3>${formatTitle(proj.title)} <span class="language-badge">${escapeHtml(proj.language)}</span></h3>
                         <div class="project-meta"><span><i class="far fa-file-alt"></i> ${escapeHtml(proj.shortDesc)}</span></div>
                         ${tagsHtml}
                     `;
@@ -1173,20 +1313,7 @@
 
                 languagesSet.forEach(lang => {
                     const btn = document.createElement('button');
-                    let iconHtml = '';
-                    switch(lang) {
-                        case 'PowerShell':
-                            iconHtml = '<i class="fas fa-terminal"></i> ';
-                            break;
-                        case 'Python':
-                            iconHtml = '<i class="fab fa-python"></i> ';
-                            break;
-                        case 'Bash':
-                            iconHtml = '<i class="fas fa-code"></i> ';
-                            break;
-                        default:
-                            iconHtml = '<i class="fas fa-code-branch"></i> ';
-                    }
+                    let iconHtml = '<i class="fas fa-terminal"></i> ';
                     btn.innerHTML = iconHtml + lang;
                     btn.className = 'filter-btn';
                     btn.dataset.filter = lang;
@@ -1203,7 +1330,6 @@
                 });
             }
 
-            // Obsługa sortowania - jeden przycisk zmieniający się
             const sortBtn = document.getElementById('sortBtn');
             
             function updateSortButton() {
@@ -1215,13 +1341,11 @@
             }
 
             sortBtn.addEventListener('click', () => {
-                // Zmiana kolejności sortowania
                 currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
                 updateSortButton();
                 renderProjects();
             });
 
-            // Obsługa panelu bocznego
             const filterToggle = document.getElementById('filterToggle');
             const filterSidebar = document.getElementById('filterSidebar');
             const filterOverlay = document.getElementById('filterOverlay');
@@ -1245,7 +1369,6 @@
             closeFilterBtn.addEventListener('click', closeSidebar);
             filterOverlay.addEventListener('click', closeSidebar);
 
-            // Zbieranie zaznaczonych filtrów tagów
             function getSelectedTagFilters() {
                 const checkboxes = document.querySelectorAll('.tag-filter');
                 const selected = [];
@@ -1257,14 +1380,12 @@
                 return selected;
             }
 
-            // Zastosowanie filtrów
             applyFiltersBtn.addEventListener('click', () => {
                 activeTagFilters = getSelectedTagFilters();
                 renderProjects();
                 closeSidebar();
             });
 
-            // Wyczyszczenie filtrów
             clearFiltersBtn.addEventListener('click', () => {
                 const checkboxes = document.querySelectorAll('.tag-filter');
                 checkboxes.forEach(cb => cb.checked = false);
@@ -1273,7 +1394,6 @@
                 closeSidebar();
             });
 
-            // Inicjalizacja
             renderDynamicTagFilters();
             renderLanguageFilters();
             renderProjects();
