@@ -1089,6 +1089,102 @@
                         fullDescription: 'Skrypt służy do sprawdzania konfiguracji SCCM Remote Control na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn sprawdza w rejestrze czy zainstalowany jest komponent SCCM Remote Control oraz jaka jest wartość Permission Required (czy wymagane jest pozwolenie na zdalną kontrolę).',
                         imageUrl: null,
                         imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Auto-PDF-Player',
+                        shortDesc: ' Skrypt działa w pętli monitorując wskazany folder sieciowy.Automatycznie zabija procesy AcroRd32, archiwizuje stare pliki PDF,usuwa polskie znaki z nazw plików i otwiera najnowszy plik PDF w Adobe Reader.',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Adobe', 'CLI'],
+                        icon: 'fa-file-pdf',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt działa w nieskończonej pętli monitorując wskazany folder sieciowy. Główne funkcje to automatyczne wyświetlanie PDF, najnowszy plik PDF w folderze jest automatycznie otwierany w Adobe Reader, archiwizacja starych plików - wszystkie pliki starsze niż najnowszy są przenoszone do podfolderu Archive, zarządzanie procesami - cykliczne zabijanie procesów Adobe Reader (co godzinę oraz przy przeładowaniu folderu), czyszczenie nazw plików czyli usuwanie polskich znaków i spacji z nazw plików, automatyczny restart systemu codziennie o godzinie 3 w nocy jeśli system działa dłużej niż 20 godzin',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Set-LegalNotice',
+                        shortDesc: 'Skrypt odczytuje listę komputerów z pliku tekstowego, a następnie na każdym z nich ustawia komunikat prawny wyświetlany przed logowaniem użytkownika do systemu.',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
+                        icon: 'fa-comment',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do masowego ustawiania komunikatu prawnego (Legal Notice) na zdalnych komputerach w domenie. Komunikat jest wyświetlany przed logowaniem użytkownika do systemu Windows. W tym przypadku skrypt ustawia komunikat informujący użytkowników o planowanej wymianie komputera na nową jednostkę i konieczności zabezpieczenia swoich danych.',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Get-Membership',
+                        shortDesc: 'Sprawdzanie członkostwa użytkownika w grupie Active Directory',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'AD', 'CLI'],
+                        icon: 'fa-users',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt sprawdza czy określony użytkownik należy do wskazanej grupy w Active Directory. Wynik jest wyświetlany w konsoli z kolorowym oznaczeniem (zielony = istnieje, czerwony = nie istnieje).',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Get-ADComputers-Inventory',
+                        shortDesc: 'Inwentaryzacja komputerów z AD - sprawdzanie statusu, IP, DNS i OU',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'AD', 'CLI'],
+                        icon: 'fa-sitemap',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do inwentaryzacji komputerów w Active Directory. Pobiera listę komputerów z dwóch jednostek organizacyjnych np.(OU=Common i OU=Win11), sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn pobiera adres IP, nazwę DNS oraz określa z której OU pochodzi komputer. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Get-UserProfilesCount',
+                        shortDesc: 'Zliczanie profili użytkowników na zdalnych komputerach',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'CLI'],
+                        icon: 'fa-user-friends',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Skrypt służy do zliczania profili użytkowników na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn zlicza foldery profili użytkowników w katalogu C:\Users (z wyłączeniem profili systemowych takich jak Public, Default, Administrator). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Remote-ComputerTaskbandManagement',
+                        shortDesc: 'Narzędzie GUI do zdalnego zarządzania Taskbandami',
+                        language: 'PowerShell',
+                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
+                        icon: 'fa-tools',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Zaawansowane narzędzie GUI do zdalnego zarządzania komputerami w domenie, umożliwiające restartowanie maszyn, raportowanie (nazwa, status, użytkownik, Taskbar, Startup), zarządzanie paskiem zadań (predefiniowane zestawy skrótów), modyfikację rejestru (preferencje Edge, blokada pinowania), zabijanie procesów Edge, wylogowywanie użytkowników oraz tworzenie skrótów Edge z argumentami (np. pełny ekran) i kopiowanie do Startup.',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },						
+                    {
+                        title: 'Procedural-Terrain-Generation',
+                        shortDesc: 'Proceduralny Generator map do gier wielopowiomowaych',
+                        language: 'C#',
+                        tags: ['C#', 'Unity', 'GUI'],
+                        icon: 'fa-mountain',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Proceduralny Generator map do gier wielopowiomowaych napisany w języku programowania C# w środowisku Unity',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
+                    },
+                    {
+                        title: 'Currency-Converter-Backend',
+                        shortDesc: 'Backendowa aplikacja do przeliczania walut w języku Java',
+                        language: 'Java',
+                        tags: ['Java', 'Backend', 'GUI'],
+                        icon: 'fa-money-bill-alt',
+                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
+                        showGithubBtn: true,
+                        fullDescription: 'Backendowa aplikacja do przeliczania walut w języku Java. Pobiera aktualne kursy wymiany z zewnętrznych API (np. NBP, Fixer.io, OpenExchangeRates) i udostępnia je poprzez REST API. Obsługuje cacheowanie kursów, historię przeliczeń, uwierzytelnianie użytkowników oraz logowanie. Wykorzystuje Spring Boot, Hibernate oraz MySQL',
+                        imageUrl: null,
+                        imageBgColor: '#306998'
                     }					
                 ]
             };
