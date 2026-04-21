@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rafał Smołaga | Portfolio</title>
+    <title>Rafał Smołaga | Portfolio PowerShell</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
@@ -23,7 +23,6 @@
             padding: 32px 24px;
         }
 
-        /* Przycisk otwierający filtr (wysuwany z lewej) */
         .filter-toggle {
             position: fixed;
             left: 20px;
@@ -48,7 +47,6 @@
             transform: translateY(-50%) scale(1.02);
         }
 
-        /* Wysuwany panel boczny */
         .filter-sidebar {
             position: fixed;
             left: -340px;
@@ -65,8 +63,6 @@
         .filter-sidebar.open {
             left: 0;
         }
-
-        /* Overlay gdy panel otwarty */
         .filter-overlay {
             position: fixed;
             top: 0;
@@ -80,8 +76,6 @@
         .filter-overlay.active {
             display: block;
         }
-
-        /* Nagłówek panelu */
         .sidebar-header {
             display: flex;
             justify-content: space-between;
@@ -108,7 +102,6 @@
             background: #012456;
             color: white;
         }
-
         .filter-group {
             margin-bottom: 24px;
         }
@@ -138,12 +131,6 @@
             cursor: pointer;
             accent-color: #012456;
         }
-        .filter-tags-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
         .apply-filters-btn {
             width: 100%;
             margin-top: 16px;
@@ -165,7 +152,6 @@
             color: #012456;
             background: #f8fafc;
         }
-
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -175,7 +161,6 @@
             overflow: hidden;
             position: relative;
         }
-
         .container::before {
             content: '';
             position: absolute;
@@ -191,16 +176,13 @@
             0% { background-position: 0% 0; }
             100% { background-position: 200% 0; }
         }
-
         .inner {
             padding: 2rem 2rem 2rem 2rem;
         }
-
         header {
             text-align: center;
             margin-bottom: 3rem;
         }
-
         .avatar {
             width: 130px;
             height: 130px;
@@ -220,7 +202,6 @@
         .avatar:hover {
             transform: scale(1.02);
         }
-
         h1 {
             font-size: 3rem;
             font-weight: 800;
@@ -231,7 +212,6 @@
             letter-spacing: -0.02em;
             margin-bottom: 8px;
         }
-
         .badge {
             display: inline-flex;
             align-items: center;
@@ -245,7 +225,6 @@
             border: 1px solid #01245620;
             margin-bottom: 20px;
         }
-
         .bio {
             max-width: 680px;
             margin: 0 auto;
@@ -257,14 +236,12 @@
             display: inline-block;
             box-shadow: 0 1px 2px rgba(0,0,0,0.02);
         }
-
         .social-links {
             margin-top: 28px;
             display: flex;
             justify-content: center;
             gap: 28px;
         }
-
         .social-links a {
             color: #334155;
             font-size: 1.8rem;
@@ -284,7 +261,6 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 18px rgba(1,36,86,0.25);
         }
-
         .filter-section {
             display: flex;
             justify-content: space-between;
@@ -295,7 +271,6 @@
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 12px;
         }
-
         .section-title {
             font-size: 1.9rem;
             font-weight: 700;
@@ -308,14 +283,12 @@
             color: #012456;
             font-size: 1.8rem;
         }
-
         .left-controls {
             display: flex;
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
         }
-
         .sort-btn {
             background: #f1f5f9;
             border: none;
@@ -334,13 +307,11 @@
             background: #e2e8f0;
             color: #012456;
         }
-
         .filter-tabs {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
         }
-
         .filter-btn {
             background: transparent;
             border: none;
@@ -368,14 +339,12 @@
         .filter-btn.active i {
             color: white;
         }
-
         .projects-grid {
             display: flex;
             flex-direction: column;
             gap: 18px;
             margin: 20px 0 20px 0;
         }
-
         .project-row {
             border-radius: 1.25rem;
             padding: 20px 28px;
@@ -390,7 +359,6 @@
             overflow: hidden;
             border: 1px solid #e9edf2;
         }
-        
         .project-row.cli {
             background: #ffffff;
         }
@@ -400,7 +368,6 @@
         .project-row.default {
             background: #ffffff;
         }
-        
         .project-row::after {
             content: '';
             position: absolute;
@@ -419,13 +386,6 @@
             transform: translateY(-3px);
             box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
         }
-        .project-row.gui:hover {
-            background: #e2e8ff;
-        }
-        .project-row.cli:hover {
-            background: #fefefe;
-        }
-
         .project-info {
             display: flex;
             align-items: center;
@@ -434,7 +394,6 @@
             pointer-events: none;
             min-width: 0;
         }
-
         .project-icon {
             font-size: 2.2rem;
             background: #eef2ff;
@@ -453,19 +412,10 @@
             background: #012456;
             color: white;
         }
-        .project-row.gui .project-icon {
-            background: #d9e2ff;
-        }
-        .project-row.gui:hover .project-icon {
-            background: #012456;
-            color: white;
-        }
-
         .project-details {
             flex: 1;
             min-width: 0;
         }
-
         .project-details h3 {
             font-size: 1.3rem;
             font-weight: 700;
@@ -476,16 +426,7 @@
             align-items: baseline;
             gap: 10px;
             word-break: break-word;
-            overflow-wrap: break-word;
         }
-
-        /* Długie nazwy - przycinanie z tooltipem */
-        .project-title {
-            word-break: break-all;
-            overflow-wrap: break-word;
-            max-width: 100%;
-        }
-
         .language-badge {
             background: #eef2ff;
             padding: 4px 12px;
@@ -498,10 +439,6 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        .project-row.gui .language-badge {
-            background: #ffffff;
-        }
-
         .project-meta {
             display: flex;
             flex-wrap: wrap;
@@ -510,16 +447,13 @@
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 8px;
-            word-break: break-word;
         }
-
         .project-tags-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 6px;
         }
-
         .project-tag {
             background: #f1f5f9;
             padding: 2px 10px;
@@ -529,15 +463,10 @@
             color: #1e6eb5;
             white-space: nowrap;
         }
-        .project-row.gui .project-tag {
-            background: #ffffff;
-        }
-
         .project-actions {
             pointer-events: auto;
             flex-shrink: 0;
         }
-
         .btn {
             padding: 10px 20px;
             border-radius: 40px;
@@ -565,8 +494,6 @@
             transform: scale(1.02);
             box-shadow: 0 8px 16px rgba(1,36,86,0.2);
         }
-
-        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -659,7 +586,6 @@
             border-radius: 20px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: 0.2s;
             display: block;
             background: #f1f5f9;
         }
@@ -668,7 +594,6 @@
             line-height: 1.65;
             font-size: 1rem;
             margin-bottom: 24px;
-            word-break: break-word;
         }
         .modal-tags {
             display: flex;
@@ -691,7 +616,6 @@
             gap: 16px;
             flex-wrap: wrap;
         }
-
         .no-projects-message {
             text-align: center;
             padding: 48px;
@@ -700,7 +624,6 @@
             color: #475569;
             border: 1px dashed #cbd5e1;
         }
-
         footer {
             margin-top: 60px;
             text-align: center;
@@ -709,13 +632,6 @@
             font-size: 0.85rem;
             border-top: 1px solid #e9edf2;
         }
-
-        /* Tooltip dla długich nazw */
-        .project-title-with-tooltip {
-            cursor: help;
-            border-bottom: 1px dotted #999;
-        }
-
         @media (max-width: 768px) {
             body { padding: 16px; }
             .inner { padding: 1.2rem; }
@@ -724,873 +640,173 @@
             .project-info { gap: 16px; }
             .project-icon { width: 48px; height: 48px; min-width: 48px; font-size: 1.6rem; }
             .filter-section { flex-direction: column; align-items: flex-start; }
-            .modal-two-columns {
-                flex-direction: column;
-                gap: 24px;
-            }
-            .modal-left, .modal-right {
-                width: 100%;
-            }
-            .language-badge {
-                white-space: normal;
-            }
-            .filter-toggle {
-                width: 40px;
-                height: 40px;
-                left: 12px;
-            }
-            .filter-sidebar {
-                width: 280px;
-                left: -300px;
-            }
-            .left-controls {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .project-tag {
-                white-space: normal;
-                font-size: 0.65rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .project-details h3 {
-                font-size: 1rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .language-badge {
-                white-space: normal;
-                font-size: 0.6rem;
-            }
-            .btn {
-                padding: 6px 12px;
-                font-size: 0.75rem;
-            }
+            .filter-toggle { width: 40px; height: 40px; left: 12px; }
+            .filter-sidebar { width: 280px; left: -300px; }
         }
     </style>
 </head>
 <body>
-    <div class="filter-toggle" id="filterToggle">
-        <i class="fas fa-sliders-h"></i>
-    </div>
-
+    <div class="filter-toggle" id="filterToggle"><i class="fas fa-sliders-h"></i></div>
     <div class="filter-sidebar" id="filterSidebar">
-        <div class="sidebar-header">
-            <h3><i class="fas fa-tags"></i> Filtruj tagi</h3>
-            <button class="close-filter" id="closeFilterBtn"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="filter-group">
-            <h4>Wybierz tagi</h4>
-            <div id="dynamicTagFilters" class="filter-tags-container"></div>
-        </div>
+        <div class="sidebar-header"><h3><i class="fas fa-tags"></i> Filtruj tagi</h3><button class="close-filter" id="closeFilterBtn"><i class="fas fa-times"></i></button></div>
+        <div class="filter-group"><h4>Wybierz tagi</h4><div id="dynamicTagFilters" class="filter-tags-container"></div></div>
         <button id="applyFiltersBtn" class="btn btn-primary apply-filters-btn">Zastosuj filtry</button>
         <button id="clearFiltersBtn" class="clear-filters-btn">Wyczyść wszystkie filtry</button>
     </div>
-    
     <div class="filter-overlay" id="filterOverlay"></div>
-
-    <div class="container">
-        <div class="inner">
-            <header>
-                <div class="avatar"><span>RS</span></div>
-                <h1>Rafał Smołaga</h1>
-                <div class="badge">
-                    <i class="fas fa-terminal"></i> 
-                    <span>PowerShell | Samouk z pasją – piszę skrypty, które rozwiązują konkretne problemy</span>
-                </div>
-                <p class="bio"><i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.</p>
-                <div class="social-links">
-                    <a href="#" target="_blank" title="LinkedIn" id="linkedinLink"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </header>
-
-            <section>
-                <div class="filter-section">
-                    <div class="left-controls">
-                        <div class="section-title">
-                            <i class="fas fa-rocket"></i> 
-                            <span>Projekty</span>
-                        </div>
-                        <button id="sortBtn" class="sort-btn">
-                            <i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z
-                        </button>
-                    </div>
-                    <div class="filter-tabs" id="filterContainer"></div>
-                </div>
-                <div class="projects-grid" id="projects-container"></div>
-            </section>
-
-            <footer>
-                <p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga </i></p>
-            </footer>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="projectModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Projekt</h2>
-                <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+    <div class="container"><div class="inner">
+        <header>
+            <div class="avatar"><span>RS</span></div>
+            <h1>Rafał Smołaga</h1>
+            <div class="badge"><i class="fas fa-terminal"></i> <span>PowerShell | Samouk z pasją – piszę skrypty, które rozwiązują konkretne problemy</span></div>
+            <p class="bio"><i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.</p>
+            <div class="social-links"><a href="#" target="_blank" title="LinkedIn" id="linkedinLink"><i class="fab fa-linkedin-in"></i></a></div>
+        </header>
+        <section>
+            <div class="filter-section">
+                <div class="left-controls"><div class="section-title"><i class="fas fa-rocket"></i><span>Projekty</span></div><button id="sortBtn" class="sort-btn"><i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z</button></div>
+                <div class="filter-tabs" id="filterContainer"></div>
             </div>
-            <div class="modal-body">
-                <div class="modal-two-columns">
-                    <div class="modal-left">
-                        <img id="modalImage" src="" alt="Screenshot projektu" class="project-screenshot">
-                    </div>
-                    <div class="modal-right">
-                        <div id="modalDescription" class="project-full-description"></div>
-                        <div id="modalTags" class="modal-tags"></div>
-                        <div class="modal-footer">
-                            <a id="modalGithubBtn" href="#" target="_blank" class="btn btn-primary">
-                                <i class="fab fa-github"></i> Repozytorium
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+            <div class="projects-grid" id="projects-container"></div>
+        </section>
+        <footer><p><i class="fas fa-code-branch"></i> Hostowane na GitHub Pages | <span id="current-year"></span> - Rafał Smołaga</p></footer>
+    </div></div>
+    <div class="modal-overlay" id="projectModal"><div class="modal-content"><div class="modal-header"><h2 id="modalTitle">Projekt</h2><button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button></div><div class="modal-body"><div class="modal-two-columns"><div class="modal-left"><img id="modalImage" src="" alt="Screenshot" class="project-screenshot"></div><div class="modal-right"><div id="modalDescription" class="project-full-description"></div><div id="modalTags" class="modal-tags"></div><div class="modal-footer"><a id="modalGithubBtn" href="#" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Repozytorium</a></div></div></div></div></div></div>
     <script>
-        (function() {
-            // =============================================================
-            // FUNKCJA GENERUJĄCA OBRAZEK Z TEKSTEM (Canvas)
-            // =============================================================
-            function generateTextImage(text, bgColor = '#012456', textColor = '#ffffff', width = 800, height = 450) {
+        (function(){
+            function generateTextImage(text, bgColor='#012456', textColor='#ffffff', width=800, height=450){
                 const canvas = document.createElement('canvas');
-                canvas.width = width;
-                canvas.height = height;
+                canvas.width = width; canvas.height = height;
                 const ctx = canvas.getContext('2d');
-                
-                ctx.fillStyle = bgColor;
-                ctx.fillRect(0, 0, width, height);
-                
-                // Delikatny wzór
-                ctx.fillStyle = textColor + '20';
-                for (let i = 0; i < 100; i++) {
-                    ctx.beginPath();
-                    ctx.arc(Math.random() * width, Math.random() * height, Math.random() * 3, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-                
+                ctx.fillStyle = bgColor; ctx.fillRect(0,0,width,height);
+                ctx.fillStyle = textColor+'20';
+                for(let i=0;i<100;i++){ ctx.beginPath(); ctx.arc(Math.random()*width,Math.random()*height,Math.random()*3,0,Math.PI*2); ctx.fill(); }
                 ctx.fillStyle = textColor;
-                const maxFontSize = Math.floor(width / 12);
-                let fontSize = maxFontSize;
+                let fontSize = Math.floor(width/12);
                 ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`;
-                
-                // Sprawdzanie czy tekst się mieści
                 let textWidth = ctx.measureText(text).width;
-                while (textWidth > width - 60 && fontSize > 20) {
-                    fontSize -= 2;
+                while(textWidth > width-60 && fontSize>20){ fontSize-=2; ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`; textWidth = ctx.measureText(text).width; }
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                const words = text.split(' '); let lines=[], currentLine='';
+                for(let w of words){
+                    const testLine = currentLine+(currentLine?' ':'')+w;
                     ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`;
-                    textWidth = ctx.measureText(text).width;
+                    if(ctx.measureText(testLine).width > width-60 && currentLine){ lines.push(currentLine); currentLine=w; } else { currentLine=testLine; }
                 }
-                
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                
-                // Podział długiego tekstu na linie
-                const words = text.split(' ');
-                let lines = [];
-                let currentLine = '';
-                
-                for (let i = 0; i < words.length; i++) {
-                    const testLine = currentLine + (currentLine ? ' ' : '') + words[i];
-                    ctx.font = `bold ${fontSize}px 'Inter', 'Segoe UI', monospace`;
-                    const testWidth = ctx.measureText(testLine).width;
-                    if (testWidth > width - 60 && currentLine.length > 0) {
-                        lines.push(currentLine);
-                        currentLine = words[i];
-                    } else {
-                        currentLine = testLine;
-                    }
-                }
-                if (currentLine) lines.push(currentLine);
-                
-                if (lines.length === 0) lines = [text];
-                
-                const lineHeight = fontSize * 1.3;
-                const totalHeight = lines.length * lineHeight;
-                const startY = height / 2 - totalHeight / 2;
-                
-                for (let i = 0; i < lines.length; i++) {
-                    ctx.fillText(lines[i], width / 2, startY + i * lineHeight);
-                }
-                
-                ctx.font = `12px 'Inter', monospace`;
-                ctx.fillStyle = textColor + 'aa';
-                ctx.fillText('Rafał Smołaga Portfolio', width / 2, height - 25);
-                
+                if(currentLine) lines.push(currentLine);
+                if(!lines.length) lines=[text];
+                const lineHeight=fontSize*1.3, totalHeight=lines.length*lineHeight, startY=height/2-totalHeight/2;
+                for(let i=0;i<lines.length;i++) ctx.fillText(lines[i], width/2, startY+i*lineHeight);
+                ctx.font = `12px 'Inter', monospace`; ctx.fillStyle = textColor+'aa'; ctx.fillText('Rafał Smołaga Portfolio', width/2, height-25);
                 return canvas.toDataURL('image/png');
             }
 
-            // =============================================================
-            // DANE PROFILU I PROJEKTÓW
-            // =============================================================
+            // ================= DANE PROJEKTÓW (Z PEŁNYMI, ORYGINALNYMI OPISAMI) =================
             const userData = {
-                name: 'Rafał Smołaga',
-                initials: 'RS',
-                bio: 'Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.',
+                name: 'Rafał Smołaga', initials: 'RS', bio: 'Automatyzuję zadania, tworzę narzędzia wiersza poleceń i proste interfejsy graficzne. Wszystko w PowerShell.',
                 linkedin: 'https://linkedin.com/in/rafal-smolaga',
                 projects: [
-                    {
-                        title: 'AD-ComputersDeleter',
-                        shortDesc: 'Usuwanie komputerów z Active Directory na podstawie listy z pliku tekstowego',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'AD', 'CLI'],
-                        icon: 'fa-trash-alt',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersDeleter.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny.',
-                        imageUrl: null,
-                        imageBgColor: '#0b4c6b'
-                    },
-                    {
-                        title: 'AD-ComputersRenamer',
-                        shortDesc: 'Zmiana nazw komputerów w domenie na podstawie pliku Excel',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'AD', 'ImportExcel', 'CLI', 'Excel'],
-                        icon: 'fa-desktop',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersRenamer.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów.',
-                        imageUrl: null,
-                        imageBgColor: '#012456'
-                    },
-                    {
-                        title: 'DVD-Detection',
-                        shortDesc: 'Skrypt sprawdza obecność napędu DVD, a następnie zapisuje wyniki w czasie rzeczywistym do pliku Excel',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
-                        icon: 'fa-compact-disc',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DVD-Detection.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel.',
-                        imageUrl: null,
-                        imageBgColor: '#4EAA25'
-                    },
-                    {
-                        title: 'Get-ComputerModel',
-                        shortDesc: 'Skrypt odczytuje listę nazw komputerów z pliku tekstowego i pobiera model komputera',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
-                        icon: 'fa-info-circle',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ComputerModel.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego pobierania modeli komputerów na podstawie listy nazw hostów.',
-                        imageUrl: null,
-                        imageBgColor: '#2b5e3b'
-                    },
-                    {
-                        title: 'Get-HDDSMARTStatus',
-                        shortDesc: 'Skrypt odczytuje listę komputerów i pobiera status SMART dysku twardego',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
-                        icon: 'fa-hdd',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-HDDSMARTStatus.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego sprawdzania statusu SMART dysków twardych na zdalnych komputerach.',
-                        imageUrl: null,
-                        imageBgColor: '#2b5e3b'
-                    },
-                    {
-                        title: 'Get-MonitorConnectionType',
-                        shortDesc: 'Skanowanie monitorów i typów połączeń wideo na zdalnych komputerach',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
-                        icon: 'fa-tv',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-MonitorConnectionType.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność, a następnie pobiera informacje o podłączonych monitorach.',
-                        imageUrl: null,
-                        imageBgColor: '#2b5e3b'
-                    },
-                    {
-                        title: 'Get-SerialNumberFromIP',
-                        shortDesc: 'Skrypt odczytuje listę adresów IP i pobiera numer seryjny BIOS',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'WMI', 'CLI', 'Excel'],
-                        icon: 'fa-tags',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SerialNumberFromIP.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego pobierania numerów seryjnych komputerów na podstawie listy adresów IP.',
-                        imageUrl: null,
-                        imageBgColor: '#2b5e3b'
-                    },
-                    {
-                        title: 'Outlook 2013 Fix Tool',
-                        shortDesc: 'Narzędzie z interfejsem graficznym do zmiany ustawień ADAL w rejestrze',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
-                        icon: 'fa-wrench',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/tree/main/Skrypty/OutlookFix',
-                        showGithubBtn: true,
-                        fullDescription: 'Narzędzie z graficznym interfejsem użytkownika (GUI) służące do zdalnej naprawy problemów z uwierzytelnianiem w programie Outlook 2013.',
-                        imageUrl: null,
-                        imageBgColor: '#2b5e3b'
-                    },
-                    {
-                        title: 'Remove-RemoteAutoStartRegistry',
-                        shortDesc: 'Usuwanie wpisów w rejestrze dotyczących autostart-u na komputerach zdalnych',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
-                        icon: 'fa-minus-circle',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remove-RemoteAutoStartRegistry.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci.',
-                        imageUrl: null,
-                        imageBgColor: '#2c5f2d'
-                    },
-                    {
-                        title: 'Set-RemoteAutoStartRegistry',
-                        shortDesc: 'Dodawanie wpisów do rejestru autostart na komputerach zdalnych',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
-                        icon: 'fa-plus-circle',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRegistry.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru na zdalnych komputerach w sieci.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-InstalledSoftware',
-                        shortDesc: 'Inwentaryzacja zainstalowanego oprogramowania na zdalnych komputerach',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI','Excel'],
-                        icon: 'fa-th-list',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-InstalledSoftware.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do inwentaryzacji zainstalowanego oprogramowania na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn odczytuje z rejestru listę wszystkich zainstalowanych programów (zarówno 32-bitowych jak i 64-bitowych). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel, z podziałem na architekturę (x32/x64).',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-OSVersion',
-                        shortDesc: 'Pobieranie wersji systemu operacyjnego ze zdalnych komputerów',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI','Excel'],
-                        icon: 'fa-microchip',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego pobierania wersji systemu operacyjnego ze zdalnych komputerów. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn odczytuje z rejestru klucz ReleaseId zawierający wersję systemu Windows (np. 21H2, 22H2).',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-SCCMRemoteControlStatus',
-                        shortDesc: 'Sprawdzanie konfiguracji SCCM Remote Control na zdalnych komputerach',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI','Excel'],
-                        icon: 'fa-eye',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SCCMRemoteControlStatus.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do sprawdzania konfiguracji SCCM Remote Control na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn sprawdza w rejestrze czy zainstalowany jest komponent SCCM Remote Control oraz jaka jest wartość Permission Required (czy wymagane jest pozwolenie na zdalną kontrolę).',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Auto-PDF-Player',
-                        shortDesc: ' Skrypt działa w pętli monitorując wskazany folder sieciowy.Automatycznie zabija procesy AcroRd32, archiwizuje stare pliki PDF,usuwa polskie znaki z nazw plików i otwiera najnowszy plik PDF w Adobe Reader.',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Adobe', 'CLI'],
-                        icon: 'fa-file-pdf',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt działa w nieskończonej pętli monitorując wskazany folder sieciowy. Główne funkcje to automatyczne wyświetlanie PDF, najnowszy plik PDF w folderze jest automatycznie otwierany w Adobe Reader, archiwizacja starych plików - wszystkie pliki starsze niż najnowszy są przenoszone do podfolderu Archive, zarządzanie procesami - cykliczne zabijanie procesów Adobe Reader (co godzinę oraz przy przeładowaniu folderu), czyszczenie nazw plików czyli usuwanie polskich znaków i spacji z nazw plików, automatyczny restart systemu codziennie o godzinie 3 w nocy jeśli system działa dłużej niż 20 godzin',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Set-LegalNotice',
-                        shortDesc: 'Skrypt odczytuje listę komputerów z pliku tekstowego, a następnie na każdym z nich ustawia komunikat prawny wyświetlany przed logowaniem użytkownika do systemu.',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
-                        icon: 'fa-comment',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego ustawiania komunikatu prawnego (Legal Notice) na zdalnych komputerach w domenie. Komunikat jest wyświetlany przed logowaniem użytkownika do systemu Windows. W tym przypadku skrypt ustawia komunikat informujący użytkowników o planowanej wymianie komputera na nową jednostkę i konieczności zabezpieczenia swoich danych.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-Membership',
-                        shortDesc: 'Sprawdzanie członkostwa użytkownika w grupie Active Directory',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'AD', 'CLI'],
-                        icon: 'fa-users',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt sprawdza czy określony użytkownik należy do wskazanej grupy w Active Directory. Wynik jest wyświetlany w konsoli z kolorowym oznaczeniem (zielony = istnieje, czerwony = nie istnieje).',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-ADComputers-Inventory',
-                        shortDesc: 'Inwentaryzacja komputerów z AD - sprawdzanie statusu, IP, DNS i OU',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'AD', 'CLI'],
-                        icon: 'fa-sitemap',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do inwentaryzacji komputerów w Active Directory. Pobiera listę komputerów z dwóch jednostek organizacyjnych np.(OU=Common i OU=Win11), sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn pobiera adres IP, nazwę DNS oraz określa z której OU pochodzi komputer. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-UserProfilesCount',
-                        shortDesc: 'Zliczanie profili użytkowników na zdalnych komputerach',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'CLI'],
-                        icon: 'fa-user-friends',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do zliczania profili użytkowników na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn zlicza foldery profili użytkowników w katalogu C:\Users (z wyłączeniem profili systemowych takich jak Public, Default, Administrator). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Remote-ComputerTaskbandManagement',
-                        shortDesc: 'Narzędzie GUI do zdalnego zarządzania Taskbandami',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
-                        icon: 'fa-tools',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Zaawansowane narzędzie GUI do zdalnego zarządzania komputerami w domenie, umożliwiające restartowanie maszyn, raportowanie (nazwa, status, użytkownik, Taskbar, Startup), zarządzanie paskiem zadań (predefiniowane zestawy skrótów), modyfikację rejestru (preferencje Edge, blokada pinowania), zabijanie procesów Edge, wylogowywanie użytkowników oraz tworzenie skrótów Edge z argumentami (np. pełny ekran) i kopiowanie do Startup.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Backup-ExampleFolder',
-                        shortDesc: 'Skanowanie komputerów w poszukiwaniu wskazanego folderu oraz backup w formie skompresowanego archiwum',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'CLI'],
-                        icon: 'fa-archive',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do skanowania komputerów w domenie i tworzenia kopii zapasowych folderu C:\AIUT. Pobiera listę komputerów z dwóch jednostek organizacyjnych (OU) w Active Directory, sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn sprawdza czy istnieje folder. Jeśli folder istnieje, skrypt tworzy kopię zapasową (archiwum ZIP) na zdalnym serwerze backup. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Convert-RegBinaryString',
-                        shortDesc: 'Skrypt konwertuje string zawierający wartości binarne rejestru w formacie z przecinkami',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'CLI'],
-                        icon: 'fa-edit',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt konwertuje string zawierający wartości binarne rejestru w formacie z przecinkami (np. 9f,03,00,00) do formatu bez przecinków (np. 9f030000), który jest wymagany przez polecenie reg add dla typu REG_BINARY. Wynik jest automatycznie kopiowany do schowka.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },	
-                    {
-                        title: 'Get-Office2019Inventory',
-                        shortDesc: 'Skanowanie komputerów w poszukiwaniu Office 2019',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
-                        icon: 'fa-file-excel',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do inwentaryzacji pakietu Microsoft Office 2019 na komputerach w domenie. Pobiera listę komputerów z dwóch jednostek organizacyjnych w Active Directory, sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn odczytuje z rejestru informację o zainstalowanym pakiecie Office 2019 oraz jego wersji. Wyniki są wyświetlane w oknie z tabelą (DataGridView) z możliwością kopiowania do schowka.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },	
-                    {
-                        title: 'Get-ADGroupManagerInfo',
-                        shortDesc: 'Wyświetla sformatowane wyniki: Group Name, Managed By Name, Description, Notes',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'AD', 'CLI'],
-                        icon: 'fa-address-card',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt pobiera informacje o grupie Active Directory o wskazanej nazwie. Wyświetla nazwę grupy, osobę zarządzającą (managedBy), opis (Description) oraz notatki (Info).',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },	
-                    {
-                        title: 'Invoke-DelProf2Cleanup',
-                        shortDesc: 'Skrypt służy do masowego usuwania starych profili użytkowników na zdalnych komputerach za pomocą narzędzia DelProf2',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'CLI'],
-                        icon: 'fa-user-slash',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego usuwania starych profili użytkowników na zdalnych komputerach za pomocą narzędzia DelProf2. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie uruchamia DelProf2 na każdym dostępnym komputerze, usuwając profile nieużywane od 30 dni (z wyłączeniem kont administratorów).',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },	
-                    {
-                        title: 'Get-UserManager',
-                        shortDesc: 'Pobieranie menedżerów użytkowników z Active Directory',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
-                        icon: 'fa-building',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt służy do masowego pobierania informacji o menedżerach użytkowników z Active Directory. Odczytuje listę użytkowników z pliku tekstowego, a następnie dla każdego z nich pobiera atrybut Manager (osoba zarządzająca). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },	
-                    {
-                        title: 'RemoteFileManager',
-                        shortDesc: 'Narzędzie GUI do zarządzania plikami na zdalnych komputerach',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
-                        icon: 'fa-folder-open',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Narzędzie GUI do zdalnego zarządzania plikami (skrótami, ikonami) na komputerach w domenie, umożliwiające kopiowanie plików do folderów Favorites, Favorites\Links, Desktop, Default Favorites, Default Desktop oraz Start Menu, usuwanie wskazanych plików z tych samych lokalizacji, wyszukiwanie i usuwanie plików na podstawie nazwy i/lub rozszerzenia, zarządzanie listą docelowych maszyn, wybór lokalizacji za pomocą checkboxów oraz szczegółowe logi operacji z timestampami w oknie wyjściowym.',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Get-ExchangeStatus',
-                        shortDesc: 'Skrypt odczytuje listę użytkowników z pliku tekstowego, a następnie dla każdego z nich pobiera z Active Directory atrybut targetAddress',
-                        language: 'PowerShell',
-                        tags: ['PowerShell', 'Remote', 'Registry', 'GUI'],
-                        icon: 'fa-envelope',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Skrypt odczytuje listę użytkowników z pliku tekstowego, a następnie dla każdego z nich pobiera z Active Directory atrybut targetAddress (adres poczty w środowisku Exchange/zewnętrzny adres SMTP). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel. Atrybut targetAddress: Określa docelowy adres pocztowy użytkownika. Pusta wartość oznacza, że skrzynka znajduje się w bieżącym środowisku Exchange. Wartość w formacie SMTP:uzytkownik@domena.com oznacza przekierowanie na zewnętrzny adres lub skrzynkę w innym serwerze',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },					
-                    {
-                        title: 'Procedural-Terrain-Generation',
-                        shortDesc: 'Proceduralny Generator map do gier wielopowiomowaych',
-                        language: 'C#',
-                        tags: ['C#', 'Unity', 'GUI'],
-                        icon: 'fa-mountain',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Proceduralny Generator map do gier wielopowiomowaych napisany w języku programowania C# w środowisku Unity',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    },
-                    {
-                        title: 'Currency-Converter-Backend',
-                        shortDesc: 'Backendowa aplikacja do przeliczania walut w języku Java',
-                        language: 'Java',
-                        tags: ['Java', 'Backend', 'GUI'],
-                        icon: 'fa-money-bill-alt',
-                        githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1',
-                        showGithubBtn: true,
-                        fullDescription: 'Backendowa aplikacja do przeliczania walut w języku Java. Pobiera aktualne kursy wymiany z zewnętrznych API (np. NBP, Fixer.io, OpenExchangeRates) i udostępnia je poprzez REST API. Obsługuje cacheowanie kursów, historię przeliczeń, uwierzytelnianie użytkowników oraz logowanie. Wykorzystuje Spring Boot, Hibernate oraz MySQL',
-                        imageUrl: null,
-                        imageBgColor: '#306998'
-                    }					
+                    { title: 'AD-ComputersDeleter', shortDesc: 'Usuwanie komputerów z Active Directory na podstawie listy z pliku tekstowego', language: 'Python', tags: ['PowerShell','AD','CLI'], icon:'fa-trash-alt', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersDeleter.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego usuwania kont komputerów z Active Directory. Odczytuje plik tekstowy zawierający listę nazw komputerów (jedna nazwa w każdym wierszu), a następnie usuwa każdy z tych obiektów z domeny.', imageUrl: null, imageBgColor:'#0b4c6b' },
+                    { title: 'AD-ComputersRenamer', shortDesc: 'Zmiana nazw komputerów w domenie na podstawie pliku Excel', language: 'PowerShell', tags: ['PowerShell','AD','CLI','Excel'], icon:'fa-desktop', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ADComputersRenamer.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowej zmiany nazw komputerów w środowisku domenowym Active Directory. Odczytuje plik Excel zawierający pary starych i nowych nazw komputerów.', imageUrl: null, imageBgColor:'#012456' },
+                    { title: 'DVD-Detection', shortDesc: 'Skrypt sprawdza obecność napędu DVD, a następnie zapisuje wyniki w czasie rzeczywistym do pliku Excel', language: 'PowerShell', tags: ['PowerShell','Remote','WMI','CLI','Excel'], icon:'fa-compact-disc', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DVD-Detection.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do skanowania komputerów w sieci, sprawdzania obecności napędu DVD i zapisywania wyników do pliku Excel.', imageUrl: null, imageBgColor:'#4EAA25' },
+                    { title: 'Get-ComputerModel', shortDesc: 'Skrypt odczytuje listę nazw komputerów z pliku tekstowego i pobiera model komputera', language: 'PowerShell', tags: ['PowerShell','Remote','WMI','CLI','Excel'], icon:'fa-info-circle', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ComputerModel.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego pobierania modeli komputerów na podstawie listy nazw hostów.', imageUrl: null, imageBgColor:'#2b5e3b' },
+                    { title: 'Get-HDDSMARTStatus', shortDesc: 'Skrypt odczytuje listę komputerów i pobiera status SMART dysku twardego', language: 'PowerShell', tags: ['PowerShell','Remote','WMI','CLI','Excel'], icon:'fa-hdd', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-HDDSMARTStatus.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego sprawdzania statusu SMART dysków twardych na zdalnych komputerach.', imageUrl: null, imageBgColor:'#2b5e3b' },
+                    { title: 'Get-MonitorConnectionType', shortDesc: 'Skanowanie monitorów i typów połączeń wideo na zdalnych komputerach', language: 'PowerShell', tags: ['PowerShell','Remote','WMI','CLI','Excel'], icon:'fa-tv', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-MonitorConnectionType.ps1', showGithubBtn: true, fullDescription: 'Skrypt odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność, a następnie pobiera informacje o podłączonych monitorach.', imageUrl: null, imageBgColor:'#2b5e3b' },
+                    { title: 'Get-SerialNumberFromIP', shortDesc: 'Skrypt odczytuje listę adresów IP i pobiera numer seryjny BIOS', language: 'PowerShell', tags: ['PowerShell','Remote','WMI','CLI','Excel'], icon:'fa-tags', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SerialNumberFromIP.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego pobierania numerów seryjnych komputerów na podstawie listy adresów IP.', imageUrl: null, imageBgColor:'#2b5e3b' },
+                    { title: 'Outlook 2013 Fix Tool', shortDesc: 'Narzędzie z interfejsem graficznym do zmiany ustawień ADAL w rejestrze', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','GUI'], icon:'fa-wrench', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/OutlookFix/OutlookFix.ps1', showGithubBtn: true, fullDescription: 'Narzędzie z graficznym interfejsem użytkownika (GUI) służące do zdalnej naprawy problemów z uwierzytelnianiem w programie Outlook 2013.', imageUrl: null, imageBgColor:'#2b5e3b' },
+                    { title: 'Remove-RemoteAutoStartRegistry', shortDesc: 'Usuwanie wpisów w rejestrze dotyczących autostart-u na komputerach zdalnych', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI'], icon:'fa-minus-circle', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remove-RemoteAutoStartRegistry.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego usuwania wpisu z klucza autostartu rejestru na zdalnych komputerach w sieci.', imageUrl: null, imageBgColor:'#2c5f2d' },
+                    { title: 'Set-RemoteAutoStartRegistry', shortDesc: 'Dodawanie wpisów do rejestru autostart na komputerach zdalnych', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI'], icon:'fa-plus-circle', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-RemoteAutoStartRegistry.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego dodawania wpisu do klucza autostartu rejestru na zdalnych komputerach w sieci.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-InstalledSoftware', shortDesc: 'Inwentaryzacja zainstalowanego oprogramowania na zdalnych komputerach', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI','Excel'], icon:'fa-th-list', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-InstalledSoftware.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do inwentaryzacji zainstalowanego oprogramowania na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn odczytuje z rejestru listę wszystkich zainstalowanych programów (zarówno 32-bitowych jak i 64-bitowych). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel, z podziałem na architekturę (x32/x64).', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-OSVersion', shortDesc: 'Pobieranie wersji systemu operacyjnego ze zdalnych komputerów', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI','Excel'], icon:'fa-microchip', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-OSVersion.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego pobierania wersji systemu operacyjnego ze zdalnych komputerów. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn odczytuje z rejestru klucz ReleaseId zawierający wersję systemu Windows (np. 21H2, 22H2).', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-SCCMRemoteControlStatus', shortDesc: 'Sprawdzanie konfiguracji SCCM Remote Control na zdalnych komputerach', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI','Excel'], icon:'fa-eye', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-SCCMRemoteControlStatus.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do sprawdzania konfiguracji SCCM Remote Control na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn sprawdza w rejestrze czy zainstalowany jest komponent SCCM Remote Control oraz jaka jest wartość Permission Required (czy wymagane jest pozwolenie na zdalną kontrolę).', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Auto-PDF-Player', shortDesc: ' Skrypt działa w pętli monitorując wskazany folder sieciowy.Automatycznie zabija procesy AcroRd32, archiwizuje stare pliki PDF,usuwa polskie znaki z nazw plików i otwiera najnowszy plik PDF w Adobe Reader.', language: 'PowerShell', tags: ['PowerShell','Adobe','CLI'], icon:'fa-file-pdf', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Auto-PDF-Player.ps1', showGithubBtn: true, fullDescription: 'Skrypt działa w nieskończonej pętli monitorując wskazany folder sieciowy. Główne funkcje to automatyczne wyświetlanie PDF, najnowszy plik PDF w folderze jest automatycznie otwierany w Adobe Reader, archiwizacja starych plików - wszystkie pliki starsze niż najnowszy są przenoszone do podfolderu Archive, zarządzanie procesami - cykliczne zabijanie procesów Adobe Reader (co godzinę oraz przy przeładowaniu folderu), czyszczenie nazw plików czyli usuwanie polskich znaków i spacji z nazw plików, automatyczny restart systemu codziennie o godzinie 3 w nocy jeśli system działa dłużej niż 20 godzin', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Set-LegalNotice', shortDesc: 'Skrypt odczytuje listę komputerów z pliku tekstowego, a następnie na każdym z nich ustawia komunikat prawny wyświetlany przed logowaniem użytkownika do systemu.', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI'], icon:'fa-comment', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Set-LegalNotice.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego ustawiania komunikatu prawnego (Legal Notice) na zdalnych komputerach w domenie. Komunikat jest wyświetlany przed logowaniem użytkownika do systemu Windows. W tym przypadku skrypt ustawia komunikat informujący użytkowników o planowanej wymianie komputera na nową jednostkę i konieczności zabezpieczenia swoich danych.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-Membership', shortDesc: 'Sprawdzanie członkostwa użytkownika w grupie Active Directory', language: 'PowerShell', tags: ['PowerShell','Remote','AD','CLI'], icon:'fa-users', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-Membership.ps1', showGithubBtn: true, fullDescription: 'Skrypt sprawdza czy określony użytkownik należy do wskazanej grupy w Active Directory. Wynik jest wyświetlany w konsoli z kolorowym oznaczeniem (zielony = istnieje, czerwony = nie istnieje).', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-ADComputers-Inventory', shortDesc: 'Inwentaryzacja komputerów z AD - sprawdzanie statusu, IP, DNS i OU', language: 'PowerShell', tags: ['PowerShell','Remote','AD','CLI'], icon:'fa-sitemap', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ADComputers-Inventory.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do inwentaryzacji komputerów w Active Directory. Pobiera listę komputerów z dwóch jednostek organizacyjnych np.(OU=Common i OU=Win11), sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn pobiera adres IP, nazwę DNS oraz określa z której OU pochodzi komputer. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-UserProfilesCount', shortDesc: 'Zliczanie profili użytkowników na zdalnych komputerach', language: 'PowerShell', tags: ['PowerShell','Remote','CLI'], icon:'fa-user-friends', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-UserProfilesCount.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do zliczania profili użytkowników na zdalnych komputerach. Odczytuje listę komputerów z pliku tekstowego, sprawdza dostępność każdego komputera (ping), a następnie dla dostępnych maszyn zlicza foldery profili użytkowników w katalogu C:\Users (z wyłączeniem profili systemowych takich jak Public, Default, Administrator). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Remote-ComputerTaskbandManagement', shortDesc: 'Narzędzie GUI do zdalnego zarządzania Taskbandami', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','GUI'], icon:'fa-tools', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Remote-ComputerTaskbandManagement.ps1', showGithubBtn: true, fullDescription: 'Zaawansowane narzędzie GUI do zdalnego zarządzania komputerami w domenie, umożliwiające restartowanie maszyn, raportowanie (nazwa, status, użytkownik, Taskbar, Startup), zarządzanie paskiem zadań (predefiniowane zestawy skrótów), modyfikację rejestru (preferencje Edge, blokada pinowania), zabijanie procesów Edge, wylogowywanie użytkowników oraz tworzenie skrótów Edge z argumentami (np. pełny ekran) i kopiowanie do Startup.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Backup-ExampleFolder', shortDesc: 'Skanowanie komputerów w poszukiwaniu wskazanego folderu oraz backup w formie skompresowanego archiwum', language: 'PowerShell', tags: ['PowerShell','Remote','CLI'], icon:'fa-archive', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Backup-ExampleFolder.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do skanowania komputerów w domenie i tworzenia kopii zapasowych folderu C:\AIUT. Pobiera listę komputerów z dwóch jednostek organizacyjnych (OU) w Active Directory, sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn sprawdza czy istnieje folder. Jeśli folder istnieje, skrypt tworzy kopię zapasową (archiwum ZIP) na zdalnym serwerze backup. Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Convert-RegBinaryString', shortDesc: 'Skrypt konwertuje string zawierający wartości binarne rejestru w formacie z przecinkami', language: 'PowerShell', tags: ['PowerShell','CLI'], icon:'fa-edit', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Convert-RegBinaryString.ps1', showGithubBtn: true, fullDescription: 'Skrypt konwertuje string zawierający wartości binarne rejestru w formacie z przecinkami (np. 9f,03,00,00) do formatu bez przecinków (np. 9f030000), który jest wymagany przez polecenie reg add dla typu REG_BINARY. Wynik jest automatycznie kopiowany do schowka.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-Office2019Inventory', shortDesc: 'Skanowanie komputerów w poszukiwaniu Office 2019', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI'], icon:'fa-file-excel', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-Office2019Inventory.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do inwentaryzacji pakietu Microsoft Office 2019 na komputerach w domenie. Pobiera listę komputerów z dwóch jednostek organizacyjnych w Active Directory, sprawdza ich dostępność (ping), a następnie dla dostępnych maszyn odczytuje z rejestru informację o zainstalowanym pakiecie Office 2019 oraz jego wersji. Wyniki są wyświetlane w oknie z tabelą (DataGridView) z możliwością kopiowania do schowka.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-ADGroupManagerInfo', shortDesc: 'Wyświetla sformatowane wyniki: Group Name, Managed By Name, Description, Notes', language: 'PowerShell', tags: ['PowerShell','AD','CLI'], icon:'fa-address-card', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ADGroupManagerInfo.ps1', showGithubBtn: true, fullDescription: 'Skrypt pobiera informacje o grupie Active Directory o wskazanej nazwie. Wyświetla nazwę grupy, osobę zarządzającą (managedBy), opis (Description) oraz notatki (Info).', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Invoke-DelProf2Cleanup', shortDesc: 'Skrypt służy do masowego usuwania starych profili użytkowników na zdalnych komputerach za pomocą narzędzia DelProf2', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI'], icon:'fa-user-slash', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Invoke-DelProf2Cleanup.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego usuwania starych profili użytkowników na zdalnych komputerach za pomocą narzędzia DelProf2. Odczytuje listę komputerów z pliku tekstowego, sprawdza ich dostępność (ping), a następnie uruchamia DelProf2 na każdym dostępnym komputerze, usuwając profile nieużywane od 30 dni (z wyłączeniem kont administratorów).', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-UserManager', shortDesc: 'Pobieranie menedżerów użytkowników z Active Directory', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','GUI'], icon:'fa-building', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-UserManager.ps1', showGithubBtn: true, fullDescription: 'Skrypt służy do masowego pobierania informacji o menedżerach użytkowników z Active Directory. Odczytuje listę użytkowników z pliku tekstowego, a następnie dla każdego z nich pobiera atrybut Manager (osoba zarządzająca). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'RemoteFileManager', shortDesc: 'Narzędzie GUI do zarządzania plikami na zdalnych komputerach', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','GUI'], icon:'fa-folder-open', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/RemoteFileManager.ps1', showGithubBtn: true, fullDescription: 'Narzędzie GUI do zdalnego zarządzania plikami (skrótami, ikonami) na komputerach w domenie, umożliwiające kopiowanie plików do folderów Favorites, Favorites\Links, Desktop, Default Favorites, Default Desktop oraz Start Menu, usuwanie wskazanych plików z tych samych lokalizacji, wyszukiwanie i usuwanie plików na podstawie nazwy i/lub rozszerzenia, zarządzanie listą docelowych maszyn, wybór lokalizacji za pomocą checkboxów oraz szczegółowe logi operacji z timestampami w oknie wyjściowym.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Get-ExchangeStatus', shortDesc: 'Skrypt odczytuje listę użytkowników z pliku tekstowego, a następnie dla każdego z nich pobiera z Active Directory atrybut targetAddress', language: 'PowerShell', tags: ['PowerShell','Remote','Registry','CLI'], icon:'fa-envelope', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Get-ExchangeStatus.ps1', showGithubBtn: true, fullDescription: 'Skrypt odczytuje listę użytkowników z pliku tekstowego, a następnie dla każdego z nich pobiera z Active Directory atrybut targetAddress (adres poczty w środowisku Exchange/zewnętrzny adres SMTP). Wyniki są zapisywane w czasie rzeczywistym do pliku Excel. Atrybut targetAddress: Określa docelowy adres pocztowy użytkownika. Pusta wartość oznacza, że skrzynka znajduje się w bieżącym środowisku Exchange. Wartość w formacie SMTP:uzytkownik@domena.com oznacza przekierowanie na zewnętrzny adres lub skrzynkę w innym serwerze', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'AdPasswordLastSet-Reporter', shortDesc: 'Skrypt PowerShell odczytuje listę kont z pliku .txt, pobiera z Active Directory datę ostatniej zmiany hasła (PasswordLastSet) dla każdego konta i zapisuje raport w pliku Excel z automatycznym dopasowaniem kolumn.', language: 'PowerShell', tags: ['PowerShell','AD','Excel','CLI'], icon:'fa-key', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/AdPasswordLastSet-Reporter.ps1', showGithubBtn: true, fullDescription: 'Dedykowane narzędzie do monitorowania historii zmian haseł w Active Directory. Skrypt wczytuje listę nazw kont serwisowych (service accounts) z lokalnego pliku txt, dla każdego z nich odpytuje AD o atrybut PasswordLastSet, a następnie generuje dwukolumnowy raport Excel (konto + data). Idealny do cyklicznych audytów polityki haseł i kontroli starzejących się kont serwisowych.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Workstation-StatusAndUser-Reporter', shortDesc: 'Skrypt PowerShell pinguje komputery z dwóch jednostek organizacyjnych AD, sprawdza ich status (UP/DOWN) oraz zalogowanego użytkownika, a następnie generuje raport Excel.', language: 'PowerShell', tags: ['PowerShell','AD','Excel','CLI'], icon:'fa-table', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Workstation-StatusAndUser-Reporter.ps1', showGithubBtn: true, fullDescription: 'Narzędzie do zdalnej inwentaryzacji stacji roboczych w środowisku Active Directory. Skrypt pobiera listę komputerów z dwóch wskazanych OU , dla każdego wykonuje test ping, a w przypadku powodzenia dodatkowo odczytuje przez WMI nazwę zalogowanego użytkownika. Wyniki zapisywane są do pliku Excel z trzema kolumnami: nazwa hosta, status (UP/DOWN) oraz użytkownik (lub "No one logged in"). Automatyczne dopasowanie kolumn i możliwość dopisywania do istniejącego pliku czynią go idealnym do codziennych porannych kontroli dostępności stanowisk i identyfikacji uśpionych sesji.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'RemoteUserSession-Terminator', shortDesc: 'Skrypt PowerShell odczytuje listę komputerów z pliku, sprawdza ich dostępność, a następnie wyszukuje i zamyka sesje zdalne wskazanego użytkownika.', language: 'PowerShell', tags: ['PowerShell','Remote','CLI'], icon:'fa-sign-out-alt', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/RemoteUserSession-Terminator.ps1', showGithubBtn: true, fullDescription: 'Narzędzie do zdalnego zarządzania sesjami użytkowników w środowisku Windows. Skrypt wczytuje listę komputerów z pliku .txt, dla każdego wykonuje test ping, a jeśli maszyna odpowiada – uruchamia polecenie quser w celu pobrania aktywnych sesji. Następnie filtruje sesje dla konkretnego użytkownika (wzorzec example_username_pattern) i wykonuje logoff na znalezionej sesji. Komunikaty o powodzeniu, braku sesji lub braku odpowiedzi komputera są kolorowane w konsoli (zielony, niebieski, czerwony). Idealny do automatycznego czyszczenia porzuconych sesji na serwerach terminalowych lub stacjach roboczych przed uruchomieniem procesów automatyzacji.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'DisplayPowerOff-Tool', shortDesc: 'Funkcja PowerShell wyłączająca wyświetlacz/monitor poprzez wysłanie natywnego komunikatu WinAPI WM_SYSCOMMAND z parametrem SC_MONITORPOWER.', language: 'PowerShell', tags: ['PowerShell','C#'], icon:'fa-bed', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/DisplayPowerOff-Tool.ps1', showGithubBtn: true, fullDescription: 'DisplayPowerOff-Tool to lekkie narzędzie PowerShell do natychmiastowego wyłączania ekranu monitora bez uśpienia całego systemu. Skrypt wykorzystuje dynamicznie kompilowany kod C# do wywołania funkcji SendMessage z biblioteki user32.dll. Wysyła do wszystkich okien (HWND_BROADCAST) komunikat systemowy WM_SYSCOMMAND (0x0112) z poleceniem SC_MONITORPOWER (0xf170) i wartością 2, która oznacza wyłączenie wyświetlacza. Rozwiązanie działa szybciej i bardziej niezawodnie niż standardowe narzędzia zewnętrzne. Idealne do skrótów klawiszowych, harmonogramu zadań (np. wyłączanie ekranu po godzinie pracy) lub jako element większych skryptów oszczędzających energię.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'WorkstationRestart-Scheduler', shortDesc: 'Skrypt PowerShell pobiera listę komputerów z dwóch jednostek organizacyjnych AD, sprawdza ich dostępność i zdalnie wykonuje wymuszony restart z natychmiastowym harmonogramem.', language: 'PowerShell', tags: ['PowerShell','AD','Excel','CLI'], icon:'fa-sync-alt', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/WorkstationRestart-Scheduler.ps1', showGithubBtn: true, fullDescription: 'Skrypt do zdalnego restartu stacji roboczych w środowisku Active Directory. Skrypt odczytuje komputery z dwóch OU(lub więcej), z możliwością wykluczenia maszyn o określonym wzorcu nazwy (np. testowych). Dla każdego komputera wykonuje test ping, a jeśli maszyna odpowiada – wysyła polecenie restartu z parametrami: wymuszone zamknięcie aplikacji (-f), brak opóźnienia (-t example_value) oraz wskazanie komputera zdalnego (-m). Komputery nieodpowiadające na ping są pomijane z odpowiednim komunikatem. Idealny do cotygodniowych restartów po instalacji aktualizacji, czyszczenia pamięci lub przed uruchomieniem porannych procesów produkcyjnych.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'NetworkInventory-MacAndStatusReport', shortDesc: 'Skrypt PowerShell pinguje komputery z listy, sprawdza status (UP/DOWN) oraz pobiera adres MAC aktywnej karty sieciowej Intel, generując raport Excel.', language: 'PowerShell', tags: ['PowerShell','Excel','CLI'], icon:'fa-network-wired', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/NetworkInventory-MacAndStatusReport.ps1', showGithubBtn: true, fullDescription: 'NetworkInventory-MacAndStatusReport to narzędzie do szybkiej inwentaryzacji sieciowej stacji roboczych. Skrypt wczytuje listę adresów IP/nazw hostów z pliku computers.txt, dla każdego wykonuje test ping, a w przypadku powodzenia – odczytuje przez WMI adres MAC z aktywnej karty sieciowej oznaczonej dostawcą example_vendor_pattern (np. Intel). Adres MAC zapisywany jest w arkuszu bez dwukropków. Komputery nieodpowiadające otrzymują status DOWN z czerwoną czcionką w raporcie. Wyniki trafiają do pliku Excel z automatycznie dopasowanymi kolumnami. Idealny do cyklicznych audytów sprzętu, weryfikacji zgodności kart sieciowych lub przygotowania danych do systemów zarządzania aktywami.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'RemoteRegistry-RdpAndRaConfigurator', shortDesc: 'Skrypt PowerShell zdalnie konfiguruje rejestr na listach komputerów, włączając zdalną pomoc (Remote Assistance) oraz RDP poprzez modyfikację czterech kluczy rejestru.', language: 'PowerShell', tags: ['PowerShell','Registry','CLI'], icon:'fa-hammer', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/RemoteRegistry-RdpAndRaConfigurator.ps1', showGithubBtn: true, fullDescription: 'RemoteRegistry-RdpAndRaConfigurator to zaawansowane narzędzie do zdalnej konfiguracji dostępu zdalnego w środowisku Windows. Skrypt wczytuje listę komputerów z pliku, testuje połączenie ping, a następnie zdalnie modyfikuje rejestr w celu włączenia: fAllowFullControl (pełna kontrola zdalnej pomocy), fAllowToGetHelp (możliwość otrzymywania pomocy zdalnej), fDenyTSConnections ustawiany na 0 (włączenie połączeń Terminal Services) oraz UserAuthentication ustawiany na 0 (wyłączenie uwierzytelniania na poziomie użytkownika RDP). Dla każdego klucza skrypt sprawdza istnienie i wartość, tworząc lub modyfikując wpisy tylko w razie potrzeby. Komunikaty kolorowane w konsoli (zielony – zmiana, niebieski – już OK, czerwony – brak odpowiedzi). Idealny do masowego przygotowania stacji roboczych do zdalnego wsparcia technicznego lub wdrożeń automatyzacji.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'ScheduledReboot', shortDesc: 'Skrypt PowerShell odczytuje listę komputerów z pliku i wysyła do każdego polecenie restartu z opóźnieniem.', language: 'PowerShell', tags: ['PowerShell','Excel','CLI'], icon:'fa-clock', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/ScheduledReboot.ps1', showGithubBtn: true, fullDescription: 'DelayedRestart-Sender to proste, ale skuteczne narzędzie do zdalnego restartu wielu maszyn z konfigurowalnym opóźnieniem. Skrypt wczytuje listę nazw hostów z pliku .txt, a następnie dla każdego komputera wykonuje polecenie shutdown /r z parametrem /t example_delay_seconds, co pozwala na zaplanowanie restartu po upływie określonego czasu (np. 4 godziny = 14400 sekund). Daje to użytkownikom czas na zapisanie pracy przed ponownym uruchomieniem systemu. Idealny do planowania restartów po godzinach pracy, przed instalacją aktualizacji lub w ramach cyklicznej konserwacji floty komputerów.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'WindowsUpdatePresence-Checker', shortDesc: 'Skrypt PowerShell sprawdza na zdalnych komputerach obecność i status instalacji dwóch wskazanych updateów Windows (KB) poprzez analizę rejestru, generując raport Excel.', language: 'PowerShell', tags: ['PowerShell','Excel','CLI'], icon:'fa-search', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/WindowsUpdatePresence-Checker.ps1', showGithubBtn: true, fullDescription: 'WindowsUpdatePresence-Checker to narzędzie do zdalnej weryfikacji instalacji konkretnych pakietów aktualizacji Windows. Skrypt wczytuje listę komputerów z pliku, testuje połączenie ping, a następnie łączy się zdalnie z rejestrem w celu sprawdzenia ścieżki Component Based Servicing\Packages. Dla każdego z dwóch zdefiniowanych updateów (np. KB0000001 i KB0000002) skrypt weryfikuje: czy pakiet istnieje w rejestrze, czy wartość CurrentState wynosi 112 (co oznacza poprawną instalację). Wyniki zapisywane są do pliku Excel z kolorowaniem: zielony (PASS/OK/exist), czerwony (DOWN/Failed/not exist/Bad Value). Idealny do audytu zgodności, weryfikacji poprawności wdrożeń aktualizacji lub raportowania stanu zabezpieczeń na flocie komputerów.', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Procedural-Terrain-Generation', shortDesc: 'Proceduralny Generator map do gier wielopowiomowaych', language: 'C#', tags: ['C#','Unity','GUI'], icon:'fa-mountain', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Procedural-Terrain-Generation.cs', showGithubBtn: true, fullDescription: 'Proceduralny Generator map do gier wielopowiomowaych napisany w języku programowania C# w środowisku Unity', imageUrl: null, imageBgColor:'#306998' },
+                    { title: 'Currency-Converter-Backend', shortDesc: 'Backendowa aplikacja do przeliczania walut w języku Java', language: 'Java', tags: ['Java','Backend','GUI'], icon:'fa-money-bill-alt', githubUrl: 'https://github.com/rafal-smolaga/Repozytorium/blob/main/Skrypty/Currency-Converter-Backend.java', showGithubBtn: true, fullDescription: 'Backendowa aplikacja do przeliczania walut w języku Java. Pobiera aktualne kursy wymiany z zewnętrznych API (np. NBP, Fixer.io, OpenExchangeRates) i udostępnia je poprzez REST API. Obsługuje cacheowanie kursów, historię przeliczeń, uwierzytelnianie użytkowników oraz logowanie. Wykorzystuje Spring Boot, Hibernate oraz MySQL', imageUrl: null, imageBgColor:'#306998' }
                 ]
             };
-
-            // Generowanie obrazków dla projektów (jeśli imageUrl jest null)
-            userData.projects.forEach(project => {
-                if (!project.imageUrl) {
-                    const bgColor = project.imageBgColor || '#012456';
-                    project.imageUrl = generateTextImage(project.title, bgColor, '#ffffff', 800, 450);
-                }
-            });
-
-            // Aktualizacja danych w DOM
+            // Generowanie obrazków
+            userData.projects.forEach(p => { if(!p.imageUrl) p.imageUrl = generateTextImage(p.title, p.imageBgColor||'#012456', '#ffffff', 800, 450); });
             document.querySelector('h1').textContent = userData.name;
             document.querySelector('.avatar span').textContent = userData.initials;
             document.querySelector('.bio').innerHTML = `<i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.6;"></i> ${userData.bio}`;
-            const linkedinA = document.getElementById('linkedinLink');
-            if(linkedinA) linkedinA.href = userData.linkedin;
-
-            // Elementy modala
-            const modalOverlay = document.getElementById('projectModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalImage = document.getElementById('modalImage');
-            const modalDesc = document.getElementById('modalDescription');
-            const modalTagsDiv = document.getElementById('modalTags');
-            const modalGithubBtn = document.getElementById('modalGithubBtn');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-
-            function openModal(project) {
-                modalTitle.textContent = project.title;
-                modalDesc.innerHTML = project.fullDescription || 'Brak szczegółowego opisu.';
-                
-                if(project.imageUrl) {
-                    modalImage.src = project.imageUrl;
-                    modalImage.style.display = 'block';
-                    modalImage.alt = `Screenshot ${project.title}`;
-                } else {
-                    modalImage.style.display = 'none';
-                }
-                
-                modalTagsDiv.innerHTML = '';
-                project.tags.forEach(tag => {
-                    const tagSpan = document.createElement('span');
-                    tagSpan.className = 'tag';
-                    tagSpan.textContent = tag;
-                    modalTagsDiv.appendChild(tagSpan);
-                });
-                
-                if (project.showGithubBtn !== false && project.githubUrl) {
-                    modalGithubBtn.href = project.githubUrl;
-                    modalGithubBtn.style.display = 'inline-flex';
-                } else {
-                    modalGithubBtn.style.display = 'none';
-                }
-                
-                modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            document.getElementById('linkedinLink').href = userData.linkedin;
+            // modal
+            const modalOverlay = document.getElementById('projectModal'), modalTitle = document.getElementById('modalTitle'), modalImage = document.getElementById('modalImage'), modalDesc = document.getElementById('modalDescription'), modalTagsDiv = document.getElementById('modalTags'), modalGithubBtn = document.getElementById('modalGithubBtn'), closeModalBtn = document.getElementById('closeModalBtn');
+            function openModal(proj){
+                modalTitle.textContent = proj.title; modalDesc.innerHTML = proj.fullDescription||'Brak szczegółów.';
+                modalImage.src = proj.imageUrl; modalImage.style.display = 'block';
+                modalTagsDiv.innerHTML = ''; proj.tags.forEach(t=>{ let s=document.createElement('span'); s.className='tag'; s.textContent=t; modalTagsDiv.appendChild(s); });
+                if(proj.showGithubBtn!==false && proj.githubUrl){ modalGithubBtn.href=proj.githubUrl; modalGithubBtn.style.display='inline-flex'; } else modalGithubBtn.style.display='none';
+                modalOverlay.classList.add('active'); document.body.style.overflow='hidden';
             }
-
-            function closeModal() {
-                modalOverlay.classList.remove('active');
-                document.body.style.overflow = '';
+            function closeModal(){ modalOverlay.classList.remove('active'); document.body.style.overflow=''; }
+            closeModalBtn.addEventListener('click',closeModal); modalOverlay.addEventListener('click',e=>{if(e.target===modalOverlay) closeModal();}); document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+            // filtry i sortowanie
+            let currentLanguageFilter='Wszystkie', activeTagFilters=[], currentSortOrder='asc';
+            const allLanguages = [...new Set(userData.projects.map(p=>p.language))];
+            const langIcons = { 'PowerShell':'fa-terminal', 'C#':'fa-code', 'Java':'fa-coffee' };
+            function renderLangFilters(){
+                const container = document.getElementById('filterContainer'); container.innerHTML='';
+                const allBtn = document.createElement('button'); allBtn.innerHTML='<i class="fas fa-layer-group"></i> Wszystkie'; allBtn.className='filter-btn active'; allBtn.dataset.filter='Wszystkie'; container.appendChild(allBtn);
+                allLanguages.forEach(lang=>{ const btn=document.createElement('button'); const icon=langIcons[lang]||'fa-code'; btn.innerHTML=`<i class="fas ${icon}"></i> ${lang}`; btn.className='filter-btn'; btn.dataset.filter=lang; container.appendChild(btn); });
+                container.querySelectorAll('.filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ container.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentLanguageFilter=btn.dataset.filter; renderProjects(); }); });
             }
-
-            closeModalBtn.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
-            document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
-
-            // =============================================================
-            // LOGIKA FILTRÓW I SORTOWANIA
-            // =============================================================
-            
-            function getAllUniqueTags() {
-                const allTags = new Set();
-                userData.projects.forEach(project => {
-                    project.tags.forEach(tag => {
-                        allTags.add(tag);
-                    });
-                });
-                return Array.from(allTags).sort();
-            }
-
-            function renderDynamicTagFilters() {
-                const container = document.getElementById('dynamicTagFilters');
-                const allTags = getAllUniqueTags();
-                container.innerHTML = '';
-                
-                allTags.forEach(tag => {
-                    const label = document.createElement('label');
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.value = tag;
-                    checkbox.className = 'tag-filter';
-                    label.appendChild(checkbox);
-                    label.appendChild(document.createTextNode(` ${tag}`));
-                    container.appendChild(label);
-                });
-            }
-
-            const languagesSet = [...new Set(userData.projects.map(p => p.language))];
-            const filterContainer = document.getElementById('filterContainer');
-            const projectsContainer = document.getElementById('projects-container');
-            let currentLanguageFilter = 'Wszystkie';
-            let activeTagFilters = [];
-            let currentSortOrder = 'asc';
-
-            function getProjectType(tags) {
-                if (tags.includes('GUI')) return 'gui';
-                if (tags.includes('CLI')) return 'cli';
-                return 'default';
-            }
-
-            function passesTagFilters(projectTags) {
-                if (activeTagFilters.length === 0) return true;
-                return activeTagFilters.some(filterTag => projectTags.includes(filterTag));
-            }
-
-            function sortProjects(projects, order) {
-                return [...projects].sort((a, b) => {
-                    const titleA = a.title.toLowerCase();
-                    const titleB = b.title.toLowerCase();
-                    if (order === 'asc') {
-                        return titleA.localeCompare(titleB);
-                    } else {
-                        return titleB.localeCompare(titleA);
-                    }
-                });
-            }
-
-            // Funkcja formatująca tytuł z tooltipem dla długich nazw
-            function formatTitle(title) {
-                if (title.length > 35) {
-                    return `<span class="project-title" title="${escapeHtml(title)}">${escapeHtml(title.substring(0, 32))}...</span>`;
-                }
-                return `<span class="project-title">${escapeHtml(title)}</span>`;
-            }
-
-            function renderProjects() {
-                let filtered = currentLanguageFilter === 'Wszystkie' 
-                    ? [...userData.projects] 
-                    : userData.projects.filter(p => p.language === currentLanguageFilter);
-                
-                filtered = filtered.filter(proj => passesTagFilters(proj.tags));
+            function getAllUniqueTags(){ let set=new Set(); userData.projects.forEach(p=>p.tags.forEach(t=>set.add(t))); return Array.from(set).sort(); }
+            function renderDynamicTagFilters(){ const container=document.getElementById('dynamicTagFilters'); const tags=getAllUniqueTags(); container.innerHTML=''; tags.forEach(tag=>{ let label=document.createElement('label'); let cb=document.createElement('input'); cb.type='checkbox'; cb.value=tag; cb.className='tag-filter'; label.appendChild(cb); label.appendChild(document.createTextNode(` ${tag}`)); container.appendChild(label); }); }
+            function passesTagFilters(projectTags){ if(activeTagFilters.length===0) return true; return activeTagFilters.some(filterTag=>projectTags.includes(filterTag)); }
+            function sortProjects(arr,order){ return [...arr].sort((a,b)=>{ let cmp=a.title.localeCompare(b.title); return order==='asc'?cmp:-cmp; }); }
+            function renderProjects(){
+                let filtered = (currentLanguageFilter==='Wszystkie')? [...userData.projects] : userData.projects.filter(p=>p.language===currentLanguageFilter);
+                filtered = filtered.filter(p=>passesTagFilters(p.tags));
                 filtered = sortProjects(filtered, currentSortOrder);
-                
-                projectsContainer.innerHTML = '';
-                
-                if(filtered.length === 0) {
-                    const emptyDiv = document.createElement('div');
-                    emptyDiv.className = 'no-projects-message';
-                    emptyDiv.innerHTML = `<i class="fas fa-filter"></i> Brak projektów spełniających kryteria.`;
-                    projectsContainer.appendChild(emptyDiv);
-                    return;
-                }
-
-                filtered.forEach(proj => {
-                    const row = document.createElement('div');
-                    const projectType = getProjectType(proj.tags);
-                    row.className = `project-row ${projectType}`;
-                    row.addEventListener('click', (e) => {
-                        if(e.target.closest('a')) return;
-                        openModal(proj);
-                    });
-
-                    const infoDiv = document.createElement('div');
-                    infoDiv.className = 'project-info';
-                    const iconSpan = document.createElement('div');
-                    iconSpan.className = 'project-icon';
-                    iconSpan.innerHTML = `<i class="fas ${proj.icon || 'fa-code'}"></i>`;
-                    const detailsDiv = document.createElement('div');
-                    detailsDiv.className = 'project-details';
-                    
-                    const tagsHtml = proj.tags && proj.tags.length > 0 
-                        ? `<div class="project-tags-list">${proj.tags.map(tag => `<span class="project-tag">${escapeHtml(tag)}</span>`).join('')}</div>`
-                        : '';
-                    
-                    detailsDiv.innerHTML = `
-                        <h3>${formatTitle(proj.title)} <span class="language-badge">${escapeHtml(proj.language)}</span></h3>
-                        <div class="project-meta"><span><i class="far fa-file-alt"></i> ${escapeHtml(proj.shortDesc)}</span></div>
-                        ${tagsHtml}
-                    `;
-                    infoDiv.appendChild(iconSpan);
-                    infoDiv.appendChild(detailsDiv);
-
-                    const actionsDiv = document.createElement('div');
-                    actionsDiv.className = 'project-actions';
-                    
-                    if (proj.showGithubBtn !== false && proj.githubUrl) {
-                        const ghButton = document.createElement('a');
-                        ghButton.href = proj.githubUrl;
-                        ghButton.target = '_blank';
-                        ghButton.rel = 'noopener noreferrer';
-                        ghButton.className = 'btn btn-primary';
-                        ghButton.innerHTML = '<i class="fab fa-github"></i> GitHub';
-                        ghButton.addEventListener('click', (e) => e.stopPropagation());
-                        actionsDiv.appendChild(ghButton);
-                    }
-                    
-                    row.appendChild(infoDiv);
-                    row.appendChild(actionsDiv);
-                    projectsContainer.appendChild(row);
+                const container=document.getElementById('projects-container'); container.innerHTML='';
+                if(filtered.length===0){ let div=document.createElement('div'); div.className='no-projects-message'; div.innerHTML='<i class="fas fa-filter"></i> Brak projektów.'; container.appendChild(div); return; }
+                filtered.forEach(proj=>{
+                    const row=document.createElement('div'); const type=proj.tags.includes('GUI')?'gui':(proj.tags.includes('CLI')?'cli':'default'); row.className=`project-row ${type}`;
+                    row.addEventListener('click',e=>{ if(!e.target.closest('a')) openModal(proj); });
+                    const infoDiv=document.createElement('div'); infoDiv.className='project-info';
+                    const iconSpan=document.createElement('div'); iconSpan.className='project-icon'; iconSpan.innerHTML=`<i class="fas ${proj.icon||'fa-code'}"></i>`;
+                    const detailsDiv=document.createElement('div'); detailsDiv.className='project-details';
+                    const tagsHtml=proj.tags.length?`<div class="project-tags-list">${proj.tags.map(t=>`<span class="project-tag">${escapeHtml(t)}</span>`).join('')}</div>`:'';
+                    detailsDiv.innerHTML=`<h3><span class="project-title">${escapeHtml(proj.title)}</span> <span class="language-badge">${escapeHtml(proj.language)}</span></h3><div class="project-meta"><span><i class="far fa-file-alt"></i> ${escapeHtml(proj.shortDesc)}</span></div>${tagsHtml}`;
+                    infoDiv.appendChild(iconSpan); infoDiv.appendChild(detailsDiv);
+                    const actionsDiv=document.createElement('div'); actionsDiv.className='project-actions';
+                    if(proj.showGithubBtn!==false && proj.githubUrl){ let a=document.createElement('a'); a.href=proj.githubUrl; a.target='_blank'; a.rel='noopener noreferrer'; a.className='btn btn-primary'; a.innerHTML='<i class="fab fa-github"></i> GitHub'; a.addEventListener('click',e=>e.stopPropagation()); actionsDiv.appendChild(a); }
+                    row.appendChild(infoDiv); row.appendChild(actionsDiv); container.appendChild(row);
                 });
             }
-
-            function escapeHtml(str) { 
-                return str.replace(/[&<>]/g, function(m){
-                    if(m==='&') return '&amp;';
-                    if(m==='<') return '&lt;';
-                    if(m==='>') return '&gt;';
-                    return m;
-                }); 
-            }
-
-            function renderLanguageFilters() {
-                filterContainer.innerHTML = '';
-                
-                const allBtn = document.createElement('button');
-                allBtn.innerHTML = '<i class="fas fa-layer-group"></i> Wszystkie';
-                allBtn.className = 'filter-btn active';
-                allBtn.dataset.filter = 'Wszystkie';
-                filterContainer.appendChild(allBtn);
-
-                languagesSet.forEach(lang => {
-                    const btn = document.createElement('button');
-                    let iconHtml = '<i class="fas fa-terminal"></i> ';
-                    btn.innerHTML = iconHtml + lang;
-                    btn.className = 'filter-btn';
-                    btn.dataset.filter = lang;
-                    filterContainer.appendChild(btn);
-                });
-
-                filterContainer.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        currentLanguageFilter = btn.dataset.filter;
-                        renderProjects();
-                    });
-                });
-            }
-
-            const sortBtn = document.getElementById('sortBtn');
-            
-            function updateSortButton() {
-                if (currentSortOrder === 'asc') {
-                    sortBtn.innerHTML = '<i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z';
-                } else {
-                    sortBtn.innerHTML = '<i class="fas fa-arrow-down-z-a"></i> Sortuj Z-A';
-                }
-            }
-
-            sortBtn.addEventListener('click', () => {
-                currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
-                updateSortButton();
-                renderProjects();
-            });
-
-            const filterToggle = document.getElementById('filterToggle');
-            const filterSidebar = document.getElementById('filterSidebar');
-            const filterOverlay = document.getElementById('filterOverlay');
-            const closeFilterBtn = document.getElementById('closeFilterBtn');
-            const applyFiltersBtn = document.getElementById('applyFiltersBtn');
-            const clearFiltersBtn = document.getElementById('clearFiltersBtn');
-
-            function openSidebar() {
-                filterSidebar.classList.add('open');
-                filterOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeSidebar() {
-                filterSidebar.classList.remove('open');
-                filterOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            filterToggle.addEventListener('click', openSidebar);
-            closeFilterBtn.addEventListener('click', closeSidebar);
-            filterOverlay.addEventListener('click', closeSidebar);
-
-            function getSelectedTagFilters() {
-                const checkboxes = document.querySelectorAll('.tag-filter');
-                const selected = [];
-                checkboxes.forEach(cb => {
-                    if (cb.checked) {
-                        selected.push(cb.value);
-                    }
-                });
-                return selected;
-            }
-
-            applyFiltersBtn.addEventListener('click', () => {
-                activeTagFilters = getSelectedTagFilters();
-                renderProjects();
-                closeSidebar();
-            });
-
-            clearFiltersBtn.addEventListener('click', () => {
-                const checkboxes = document.querySelectorAll('.tag-filter');
-                checkboxes.forEach(cb => cb.checked = false);
-                activeTagFilters = [];
-                renderProjects();
-                closeSidebar();
-            });
-
-            renderDynamicTagFilters();
-            renderLanguageFilters();
-            renderProjects();
-            updateSortButton();
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            function escapeHtml(str){ return str.replace(/[&<>]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]||m)); }
+            const sortBtn=document.getElementById('sortBtn');
+            sortBtn.addEventListener('click',()=>{ currentSortOrder=currentSortOrder==='asc'?'desc':'asc'; sortBtn.innerHTML=currentSortOrder==='asc'?'<i class="fas fa-arrow-up-a-z"></i> Sortuj A-Z':'<i class="fas fa-arrow-down-z-a"></i> Sortuj Z-A'; renderProjects(); });
+            const filterToggle=document.getElementById('filterToggle'), filterSidebar=document.getElementById('filterSidebar'), filterOverlay=document.getElementById('filterOverlay'), closeFilterBtn=document.getElementById('closeFilterBtn'), applyBtn=document.getElementById('applyFiltersBtn'), clearBtn=document.getElementById('clearFiltersBtn');
+            function openSidebar(){ filterSidebar.classList.add('open'); filterOverlay.classList.add('active'); document.body.style.overflow='hidden'; }
+            function closeSidebar(){ filterSidebar.classList.remove('open'); filterOverlay.classList.remove('active'); document.body.style.overflow=''; }
+            filterToggle.addEventListener('click',openSidebar); closeFilterBtn.addEventListener('click',closeSidebar); filterOverlay.addEventListener('click',closeSidebar);
+            applyBtn.addEventListener('click',()=>{ activeTagFilters=[...document.querySelectorAll('.tag-filter')].filter(cb=>cb.checked).map(cb=>cb.value); renderProjects(); closeSidebar(); });
+            clearBtn.addEventListener('click',()=>{ document.querySelectorAll('.tag-filter').forEach(cb=>cb.checked=false); activeTagFilters=[]; renderProjects(); closeSidebar(); });
+            renderDynamicTagFilters(); renderLangFilters(); renderProjects(); document.getElementById('current-year').textContent=new Date().getFullYear();
         })();
     </script>
 </body>
