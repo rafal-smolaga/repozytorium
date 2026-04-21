@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "currency",
+      "type": "com.currency.backend.api.CurrencyConfig",
+      "sourceType": "com.currency.backend.api.CurrencyConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "currency.api-host",
+      "type": "java.lang.String",
+      "sourceType": "com.currency.backend.api.CurrencyConfig"
+    },
+    {
+      "name": "currency.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.currency.backend.api.CurrencyConfig"
+    },
+    {
+      "name": "currency.currency-api-end-point",
+      "type": "java.lang.String",
+      "sourceType": "com.currency.backend.api.CurrencyConfig"
+    }
+  ],
+  "hints": []
+}
