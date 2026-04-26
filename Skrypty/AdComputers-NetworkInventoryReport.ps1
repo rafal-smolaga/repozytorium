@@ -1,7 +1,7 @@
 # AdComputers-NetworkInventoryReport.ps1
-# Skrypt do inwentaryzacji sieciowej stacji roboczych z dwóch jednostek organizacyjnych AD
+# Skrypt do inwentaryzacji sieciowej stacji roboczych z dwĂłch jednostek organizacyjnych AD
 
-# �cie�ka do pliku wynikowego Excel
+# Ścieżka do pliku wynikowego Excel
 $path = ".\NetworkInventory_Report.xls"
 
 # Utworzenie obiektu aplikacji Excel
@@ -20,7 +20,7 @@ else
 
 $Excel.Visible = $True
 
-# Nag��wki kolumn raportu
+# Nagłówki kolumn raportu
 $Worksheet.Cells.Item(1, 1) = "Hostname"
 $Worksheet.Cells.Item(1, 2) = "Status"
 $Worksheet.Cells.Item(1, 3) = "IP Address"
@@ -30,17 +30,17 @@ $Worksheet.Cells.Item(1, 5) = "Ou"
 $row = 2
 [void]$Worksheet.UsedRange.EntireColumn.AutoFit()
 
-# Pobranie komputer�w z pierwszej jednostki organizacyjnej (np. Win11)
-Write-Host "Pobieranie komputer�w z OU: Win11..." -ForegroundColor Cyan
+# Pobranie komputerów z pierwszej jednostki organizacyjnej (np. Win11)
+Write-Host "Pobieranie komputerów z OU: Win11..." -ForegroundColor Cyan
 $OU1 = Get-ADComputer -Filter * -SearchBase "OU=Win11,OU=Workstations,OU=Computers,DC=example,DC=com" | select Name, DistinguishedName
 
-# Pobranie komputer�w z drugiej jednostki organizacyjnej (np. Win10)
-Write-Host "Pobieranie komputer�w z OU: Win10..." -ForegroundColor Cyan
+# Pobranie komputerów z drugiej jednostki organizacyjnej (np. Win10)
+Write-Host "Pobieranie komputerów z OU: Win10..." -ForegroundColor Cyan
 $OU2 = Get-ADComputer -Filter * -SearchBase "OU=Win10,OU=Workstations,OU=Computers,DC=example,DC=com" | select Name, DistinguishedName
 
-# Połączenie i sortowanie listy komputer�w
+# PoĹ‚Ä…czenie i sortowanie listy komputerów
 $computers = $OU1 + $OU2 | Sort-Object Name
-Write-Host "Znaleziono ��cznie: $($computers.Count) komputer�w" -ForegroundColor Green
+Write-Host "Znaleziono łącznie: $($computers.Count) komputerów" -ForegroundColor Green
 
 foreach($computer in $computers)
 {
@@ -56,7 +56,7 @@ foreach($computer in $computers)
     $computerName = $computer | select Name -ExpandProperty Name
     Write-Host "Sprawdzanie: $computerName" -ForegroundColor Yellow
     
-    # Test połączenia ping (1 pakiet)
+    # Test poĹ‚Ä…czenia ping (1 pakiet)
     $ping = Test-Connection $computerName -Count 1 -ea silentlycontinue
 
     if($ping){
@@ -93,9 +93,9 @@ foreach($computer in $computers)
     }
 }
 
-# Zapisanie i zakończenie
-Write-Host "Raport zosta�� wygenerowany: $path" -ForegroundColor Green
-Write-Host "��cznie przetworzono: $($row-2) komputer�w" -ForegroundColor Cyan
+# Zapisanie i zakoĹ„czenie
+Write-Host "Raport został‚ wygenerowany: $path" -ForegroundColor Green
+Write-Host "łącznie przetworzono: $($row-2) komputerów" -ForegroundColor Cyan
 
 # Automatyczne dopasowanie kolumn na koniec
 [void]$Worksheet.UsedRange.EntireColumn.AutoFit()
